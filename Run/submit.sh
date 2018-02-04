@@ -183,24 +183,24 @@ case $option in
          # mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/cross
          ;;
     0.4.1) echo "Generating fifty cross sections with divided branch fractions and random relative pases as well as combinations..."
-           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase
+           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase
            hep_sub -g physics job
            cd ../../../Run
            ;;
     0.4.2) echo "..."
-           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase
+           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase
            cd ../../../../Run
            ;;
     0.4.3) echo "..."
-           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase
+           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase
            cd ../../../../Run
            ;;
     0.4.4) echo "..."
-           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase
+           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase
            cd ../../../../../Run
            ;;
     0.4.5) echo "..."
-           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase
+           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase
            cd ../../../../../Run
            ;;
 
