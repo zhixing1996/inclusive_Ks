@@ -6,6 +6,10 @@ You can get the source codes from https://github.com/zhixing1996/inclusive_Ks.gi
 
 > ./Run/cleanup.sh 
 
+## Note
+
+> Please fix hard codes in: Combination/fit_ks_phase.C, seed_combination/fit_ks_phase.C, Table/Find/FindBf.sh, Table/Find/FindPhase.sh, Run/cleanup.sh and Run/submit.sh before running.
+
 ## Start
 
 ROOT verion 5.34.09, BOSS version 665p01
