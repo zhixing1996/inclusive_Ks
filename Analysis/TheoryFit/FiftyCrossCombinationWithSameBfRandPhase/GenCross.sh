@@ -13,7 +13,7 @@ do
   touch sub
   echo "hep_sub -g physics job" > sub
   chmod 700 job
-  #./job
-  bash sub
+  ./job
+  #bash sub
   cd ../
 done
