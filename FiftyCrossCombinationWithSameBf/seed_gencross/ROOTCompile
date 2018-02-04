@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export CFLAGS=`root-config --cflags`
+export LDFLAGS=`root-config --ldflags --glibs`
+#export LDFLAGS=`root-config --glibs`
+
+g++ ${CFLAGS} -c ${1}.C
+g++ -o ${1} ${1}.o -m32 ${LDFLAGS} -lm  -lRooFit
+#g++ -o ${1} ${1}.o -m32 ${LDFLAGS}
+
+rm ${1}.o
