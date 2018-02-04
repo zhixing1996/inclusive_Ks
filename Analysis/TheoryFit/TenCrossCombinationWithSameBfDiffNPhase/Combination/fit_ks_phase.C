@@ -236,7 +236,7 @@ int main(int argc, char *argv[])
        if(tag[i-1]==1) N++;
     }
 
-    TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombination/rootfile/fit_ks_phase";
+    TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase/rootfile/fit_ks_phase";
     for (int i=1; i<argc;i++){
       apple+="_";
       apple+=argv[i];
@@ -244,7 +244,7 @@ int main(int argc, char *argv[])
     apple+=".root";
 
     ofstream paras;
-    TString orange="/besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombination/logfile/fit_ks_phase";
+    TString orange="/besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase/logfile/fit_ks_phase";
     for (int i=1; i<argc;i++){
       orange+="_";
       orange+=argv[i];
@@ -285,7 +285,7 @@ int main(int argc, char *argv[])
     ecm0err[14]=0.093E-3;
     ecm0err[15]=0.115E-3;
 
-    TString banana="/besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombination/cross/fit_ks_phase";
+    TString banana="/besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase/cross/fit_ks_phase";
     for (int i=1; i<argc;i++){
       banana+="_";
       banana+=argv[i];
