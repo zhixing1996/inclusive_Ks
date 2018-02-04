@@ -48,8 +48,8 @@ do
     ./job
     let "j = $j + 1"
     cd ../
-    BfFile="Bf_combination"$i".txt"
-    PhaseFile="Phase_combination"$i".txt"
+    BfFile="Bf_combination.txt"
+    PhaseFile="Phase_combination.txt"
     touch $BfFile
     touch $PhaseFile
     echo ".15" > $BfFile
@@ -62,22 +62,26 @@ do
         let "sum = ${IntRnd[$k]} + $sum"
     done
 
+    rnd_back=$dominantrnd
     while [ $j -le 49 ]; 
     do
         rnd=$(rand 0 90)
         if [ $rnd != $dominantrnd ]; then
-            # Must note: NormRnd= `echo "scale=8; ${IntRnd[$i]} / $sum " | bc -l` is wrong, "NormRnd=" can't be followed by blankspace
-            let "num = $j - 1"
-            NormRnd=`echo "scale=8; 0.35 * ${IntRnd[$num]} / $sum " | bc -l`
-            cp ../../EachPhase/$rnd . -rf
-            cd $rnd
-            sed -i s/'seed_Bf/'$NormRnd''/g fit_ks_phase.C
-            echo "$j ^th cross section is generating..."
-            ./job
-            let "j = $j + 1"
-            cd ../
-            echo "$NormRnd" >> $BfFile
-            echo "$rnd" >> $PhaseFile
+            if [ $rnd != $rnd_back ]; then
+                # Must note: NormRnd= `echo "scale=8; ${IntRnd[$i]} / $sum " | bc -l` is wrong, "NormRnd=" can't be followed by blankspace
+                let "num = $j - 1"
+                NormRnd=`echo "scale=8; 0.35 * ${IntRnd[$num]} / $sum " | bc -l`
+                cp ../../EachPhase/$rnd . -rf
+                cd $rnd
+                sed -i s/'seed_Bf/'$NormRnd''/g fit_ks_phase.C
+                echo "$j ^th cross section is generating..."
+                ./job
+                let "j = $j + 1"
+                cd ../
+                echo "$NormRnd" >> $BfFile
+                echo "$rnd" >> $PhaseFile
+                rnd_back=$rnd
+            fi
         fi
     done
     cd ../

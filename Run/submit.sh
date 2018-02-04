@@ -34,7 +34,7 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.3.4"      "[Get branch fractions and relative phases]"
     printf "\n\t%-9s  %-40s"  "0.3.5"      "[Make table]"
     printf "\n\t%-9s  %-40s"  "0.4"      "[Build necessary directories for combinations of fifty cross sections with divided branch fractions and random relative phases]" 
-    printf "\n\t%-9s  %-40s"  "0.4.1"      "[Generate fifty cross sections with divided branch fractions and random relative phases as well as combinations]" 
+    printf "\n\t%-9s  %-40s"  "0.4.1"      "[Generate fifty cross sections with divided branch fractions and random relative phases as well as combinations and fit]" 
     printf "\n\t%-9s  %-40s"  "0.4.2"      "[]"
     printf "\n\t%-9s  %-40s"  "0.4.3"      "[]"
     printf "\n\t%-9s  %-40s"  "0.4.4"      "[]"
@@ -178,11 +178,11 @@ case $option in
 
     0.4) echo "Building necessary directories..."
          mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase 
-         # mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/rootfile
-         # mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/logfile
-         # mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/cross
+         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/rootfile
+         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/logfile
+         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/cross
          ;;
-    0.4.1) echo "Generating fifty cross sections with divided branch fractions and random relative pases as well as combinations..."
+    0.4.1) echo "Generating fifty cross sections with divided branch fractions and random relative pases as well as combinations and fitting..."
            cd ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase
            hep_sub -g physics job
            cd ../../../Run

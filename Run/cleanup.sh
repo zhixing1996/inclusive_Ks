@@ -10,21 +10,21 @@ usage() {
     printf "\n\t%-5s\n" "./cleanup.sh [OPTION]"
     printf "\nOPTIONS\n"    
     printf "\n\t%-9s  %-40s"  "0.1"      "[Clean files for combinations of two cross sections with different relative phase(0~90)]"       
-    printf "\n\t%-9s  %-40s"  "0.1.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombinationWithSameBfDiffPhase]"
-    printf "\n\t%-9s  %-40s"  "0.1.2"      "[Clean files in ../TwoCrossCombinationWithSameBfDiffPhase]"
-    printf "\n\t%-9s  %-40s"  "0.1.3"      "[Clean files in ../TwoCrossCombinationWithSameBfDiffPhase/Table]"
+    printf "\n\t%-9s  %-40s"  "0.1.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase]"
+    printf "\n\t%-9s  %-40s"  "0.1.2"      "[Clean files in ../Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase]"
+    printf "\n\t%-9s  %-40s"  "0.1.3"      "[Clean files in ../Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase/Table]"
     printf "\n\t%-9s  %-40s"  "0.2"      "[Clean files for combinations of ten cross section with different number of relative phase 90]"       
-    printf "\n\t%-9s  %-40s"  "0.2.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase]"
-    printf "\n\t%-9s  %-40s"  "0.2.2"      "[Clean files in ../TenCrossCombinationWithSameBfDiffNPhase]"
-    printf "\n\t%-9s  %-40s"  "0.2.3"      "[Clean files in ../TenCrossCombinationWithSameBfDiffNPhase/Table]"
+    printf "\n\t%-9s  %-40s"  "0.2.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase]"
+    printf "\n\t%-9s  %-40s"  "0.2.2"      "[Clean files in ../Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase]"
+    printf "\n\t%-9s  %-40s"  "0.2.3"      "[Clean files in ../Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase/Table]"
     printf "\n\t%-9s  %-40s"  "0.3"      "[Clean files for combinations of fifty cross secctions with same branch fractions and random relative phases]" 
-    printf "\n\t%-9s  %-40s"  "0.3.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/FifityCrossCombinationWithSameBf]"
-    printf "\n\t%-9s  %-40s"  "0.3.2"      "[Clean files in ../FiftyCrossCombinationWithSameBfRandPhase]"
-    printf "\n\t%-9s  %-40s"  "0.3.3"      "[Clean files in ../FiftyCrossCombinationWithSameBfRandPhase/Table]"
+    printf "\n\t%-9s  %-40s"  "0.3.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/Analysis/TheoryFit/FifityCrossCombinationWithSameBf]"
+    printf "\n\t%-9s  %-40s"  "0.3.2"      "[Clean files in ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase]"
+    printf "\n\t%-9s  %-40s"  "0.3.3"      "[Clean files in ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase/Table]"
     printf "\n\t%-9s  %-40s"  "0.4"      "[Clean files for combinations of fifty cross secctions with divided branch fractions and random relative phases]"
-    printf "\n\t%-9s  %-40s"  "0.4.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase]"
-    printf "\n\t%-9s  %-40s"  "0.4.2"      "[Clean files in ../FiftyCrossCombinationWithDividedBfRandPhase]"
-    printf "\n\t%-9s  %-40s"  "0.4.3"      "[Clean files in ../FiftyCrossCombinationWithDividedBfRandPhase/Table]"
+    printf "\n\t%-9s  %-40s"  "0.4.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase]"
+    printf "\n\t%-9s  %-40s"  "0.4.2"      "[Clean files in ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase]"
+    printf "\n\t%-9s  %-40s"  "0.4.3"      "[Clean files in ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase/Table]"
 
 
 
@@ -49,10 +49,10 @@ case $option in
 
     0.1) echo "Cleaning files for combinations of two cross sections with different relative phase(0~90)..."
          ;;
-    0.1.1) echo "Cleaning directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombinationWithSameBfDiffPhase..."
+    0.1.1) echo "Cleaning directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase..."
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombinationWithSameBfDiffPhase -rf
            ;;
-    0.1.2) echo "Cleaning files in ../TwoCrossCombinationWithSameBfDiffPhase..."
+    0.1.2) echo "Cleaning files in ../Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase..."
            cd ../Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase
            for (( i =0; i<100; i= i+10))
            do
@@ -66,7 +66,7 @@ case $option in
            rm job.* -rf
            cd ../../../../Run
            ;;
-    0.1.3) echo "Cleaning files in ../TwoCrossCombinationWithSameBfDiffPhase/Table..."
+    0.1.3) echo "Cleaning files in ../Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase/Table..."
            cd ../Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase/Table
            cd Find
            rm *txt -rf
@@ -81,10 +81,10 @@ case $option in
 
     0.2) echo "Cleaning files for combinations of ten cross sections with different number of relative phase 90..."
          ;;
-    0.2.1) echo "Cleaning directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase..."
+    0.2.1) echo "Cleaning directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase..."
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase -rf
            ;;
-    0.2.2) echo "Cleaning files in ../TenCrossCombinationWithSameBfDiffNPhase..."
+    0.2.2) echo "Cleaning files in ../Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase..."
            cd ../Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase
            for  i in 0 90
            do
@@ -98,7 +98,7 @@ case $option in
            rm job.* -rf
            cd ../../../../Run
            ;;
-    0.2.3) echo "Cleaning files in ../TenCrossCombinationWithSameBfDiffNPhase/Table..."
+    0.2.3) echo "Cleaning files in ../Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase/Table..."
            cd ../Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase/Table
            cd Find
            rm *txt -rf
@@ -113,10 +113,10 @@ case $option in
 
     0.3) echo "Cleaning files for combinations of fifty cross sections with same branch fractions and random relative phases..."
          ;;
-    0.3.1) echo "Cleaning directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase..."
+    0.3.1) echo "Cleaning directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase..."
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase -rf
            ;;
-    0.3.2) echo "Cleaning files in ../FiftyCrossCombinationWithSameBfRandPhase..."
+    0.3.2) echo "Cleaning files in ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase..."
            cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase
            for  (( i =0; i<91; i= i+1))
            do
@@ -130,7 +130,7 @@ case $option in
            rm job.* -rf
            cd ../../../../Run
            ;;
-    0.3.3) echo "Cleaning files in ../FiftyCrossCombinationWithSameBfRandPhase/Table..."
+    0.3.3) echo "Cleaning files in ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase/Table..."
            cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase/Table
            cd Find
            rm *txt -rf
@@ -145,16 +145,17 @@ case $option in
 
     0.4) echo "Cleaning files for combinations of fifty cross sections with divided branch fractions and random relative phases..."
          ;;
-    0.4.1) echo "Cleaning directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase..."
+    0.4.1) echo "Cleaning directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase..."
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase -rf
            ;;
-    0.4.2) echo "Cleaning files in ../FiftyCrossCombinationWithDividedBfRandPhase..."
-           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase
+    0.4.2) echo "Cleaning files in ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase..."
+           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase
            rm Combination -rf
            rm EachPhase -rf
-           cd ../../../../Run
+           rm job.* -rf
+           cd ../../../Run
            ;;
-    0.4.3) echo "Cleaning files in ../FiftyCrossCombinationWithSameBfRandPhase/Table..."
+    0.4.3) echo "Cleaning files in ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase/Table..."
            # cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase/Table
            # cd Find
            # rm *txt -rf
@@ -242,17 +243,11 @@ case $option in
 
            # FiftyCrossCombinationWithDividedBfRandPhaseRandPhase
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase -rf
-           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase
+           cd ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase
            rm Combination -rf
            rm EachPhase -rf
-           cd ../../../../Run
-
-
-
-
-
-
-
+           rm job.* -rf
+           cd ../../../Run
 
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks -rf
          ;;
