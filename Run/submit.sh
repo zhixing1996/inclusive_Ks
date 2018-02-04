@@ -13,12 +13,14 @@ fi
 usage() {
     printf "NAME\n\trun.sh - Main driver to run\n"
     printf "\nSYNOPSIS\n"
-    printf "\n\t%-5s\n" "./run.sh [OPTION]"
+    printf "\n\t%-5s\n" "./submit.sh [OPTION]"
     printf "\nOPTIONS\n"
     printf "\n\t%-9s  %-40s"  "0.1"      "[Build necessary directories for combinations of two cross sections with different relative phase(0~90)]" 
     printf "\n\t%-9s  %-40s"  "0.1.1"      "[Generate ten cross sections with different relative phase]" 
     printf "\n\t%-9s  %-40s"  "0.1.2"      "[Generate combinations]"
     printf "\n\t%-9s  %-40s"  "0.1.3"      "[Submit jobs]"
+    printf "\n\t%-9s  %-40s"  "0.1.4"      "[Get branch fractions and relative phases]"
+    printf "\n\t%-9s  %-40s"  "0.1.5"      "[Make table]"
     printf "\n\t%-9s  %-40s"  "0.2"      "[Build necessary directories for combinations of ten cross sections with different number of relative phase 90]" 
     printf "\n\t%-9s  %-40s"  "0.2.1"      "[Generate two cross sections with relative phase 0 and 90]" 
     printf "\n\t%-9s  %-40s"  "0.2.2"      "[Generate combinations]"
@@ -67,6 +69,17 @@ case $option in
            ./ROOTCompile fit_ks_phase
            bash sub
            cd ../../Run
+           ;;
+    0.1.4) echo "Getting branch fractions and relative phases..."
+           cd ../TwoCrossCombination/Table/Find
+           ./FindBf.sh
+           ./FindPhase.sh
+           cd ../../../Run
+           ;;
+    0.1.5) echo "Making table..."
+           cd ../TwoCrossCombination/Table/MakeTable
+           root -l -q MakeTable.cxx
+           cd ../../../Run
            ;;
 
     # ----------------------------------------------------------------------------------

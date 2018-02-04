@@ -11,13 +11,14 @@ usage() {
     printf "\nOPTIONS\n"    
     printf "\n\t%-9s  %-40s"  "0.1"      "[Clean files for combinations of two cross sections with different relative phase(0~90)]"       
     printf "\n\t%-9s  %-40s"  "0.1.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombination]"
-    printf "\n\t%-9s  %-40s"  "0.1.2"      "[Clean files in ./inclusive_Ks/TwoCrossCombination]"
+    printf "\n\t%-9s  %-40s"  "0.1.2"      "[Clean files in ../TwoCrossCombination]"
+    printf "\n\t%-9s  %-40s"  "0.1.3"      "[Clean files in ../TwoCrossCombination/Table]"
     printf "\n\t%-9s  %-40s"  "0.2"      "[Clean files for combinations of ten cross section with different number of relative phase 90]"       
     printf "\n\t%-9s  %-40s"  "0.2.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombination]"
-    printf "\n\t%-9s  %-40s"  "0.2.2"      "[Clean files in ./inclusive_Ks/TenCrossCombination]"
+    printf "\n\t%-9s  %-40s"  "0.2.2"      "[Clean files in ../TenCrossCombination]"
     printf "\n\t%-9s  %-40s"  "0.3"      "[Clean files for combinations of fifty cross secctions with same branch fractions]" 
     printf "\n\t%-9s  %-40s"  "0.3.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/FifityCrossCombinationWithSameBf]"
-    printf "\n\t%-9s  %-40s"  "0.3.2"      "[Clean files in ./inclusive_Ks/FiftyCrossCombinationWithSameBf]"
+    printf "\n\t%-9s  %-40s"  "0.3.2"      "[Clean files in ../FiftyCrossCombinationWithSameBf]"
     printf "\n\t%-9s  %-40s"  "0.6"      "[End of cleaning (clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks)]"
     printf "\n\t%-9s  %-40s"  "0.7"      "[Clean all]"
 }
@@ -42,7 +43,7 @@ case $option in
     0.1.1) echo "Cleaning directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombination..."
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombination -rf
            ;;
-    0.1.2) echo "Cleaning files in ./inclusive_Ks/TwoCrossCombination..."
+    0.1.2) echo "Cleaning files in ../TwoCrossCombination..."
            cd ../TwoCrossCombination
            for (( i =0; i<100; i= i+10))
            do
@@ -56,6 +57,14 @@ case $option in
            rm job.* -rf
            cd ../../Run
            ;;
+    0.1.3) echo "Cleaning files in ../TwoCrossCombination/Table..."
+           cd ../TwoCrossCombination/Table
+           cd Find
+           rm *txt -rf
+           cd ../MakeTable
+           rm *txt -rf
+           cd ../../../Run
+           ;;
 
     # --------------------------------------------------------------------------------------------------
     #  0.2 Clean files for combinations of ten cross sections with different number of relative phase 90
@@ -66,7 +75,7 @@ case $option in
     0.2.1) echo "Cleaning directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombination..."
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombination -rf
            ;;
-    0.2.2) echo "Cleaning files in ./inclusive_Ks/TenCrossCombination..."
+    0.2.2) echo "Cleaning files in ../TenCrossCombination..."
            cd ../TenCrossCombination
            for  i in 0 90
            do
@@ -90,7 +99,7 @@ case $option in
     0.3.1) echo "Cleaning directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBf..."
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBf -rf
            ;;
-    0.3.2) echo "Cleaning files in ./inclusive_Ks/FiftyCrossCombinationWithSameBf..."
+    0.3.2) echo "Cleaning files in ../FiftyCrossCombinationWithSameBf..."
            cd ../FiftyCrossCombinationWithSameBf
            for  (( i =0; i<91; i= i+1))
            do
@@ -133,6 +142,12 @@ case $option in
            rm fit_ks_phase -rf
            rm job.* -rf
            cd ../../Run
+           cd ../TwoCrossCombination/Table
+           cd Find
+           rm *txt -rf
+           cd ../MakeTable
+           rm *txt -rf
+           cd ../../../Run
 
            # TenCrossCombination
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombination -rf
