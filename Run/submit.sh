@@ -25,6 +25,8 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.2.1"      "[Generate two cross sections with relative phase 0 and 90]" 
     printf "\n\t%-9s  %-40s"  "0.2.2"      "[Generate combinations]"
     printf "\n\t%-9s  %-40s"  "0.2.3"      "[Submit jobs]"
+    printf "\n\t%-9s  %-40s"  "0.2.4"      "[Get branch fractions and relative phases]"
+    printf "\n\t%-9s  %-40s"  "0.2.5"      "[Make table]"
     printf "\n\t%-9s  %-40s"  "0.3"      "[Build necessary directories for combinations of fifty cross sections with same branch fractions]" 
     printf "\n\t%-9s  %-40s"  "0.3.1"      "[Generate ninety-one cross sections with same branch fractions]" 
     printf "\n\t%-9s  %-40s"  "0.3.2"      "[Generate combinations]"
@@ -109,6 +111,17 @@ case $option in
            ./ROOTCompile fit_ks_phase
            bash sub
            cd ../../Run
+           ;;
+    0.2.4) echo "Getting branch fractions and relative phases..."
+           cd ../TenCrossCombination/Table/Find
+           ./FindBf.sh
+           ./FindPhase.sh
+           cd ../../../Run
+           ;;
+    0.2.5) echo "Making table..."
+           cd ../TenCrossCombination/Table/MakeTable
+           root -l -q MakeTable.cxx
+           cd ../../../Run
            ;;
 
     # --------------------------------------------------------------------

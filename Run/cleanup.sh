@@ -16,6 +16,7 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.2"      "[Clean files for combinations of ten cross section with different number of relative phase 90]"       
     printf "\n\t%-9s  %-40s"  "0.2.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombination]"
     printf "\n\t%-9s  %-40s"  "0.2.2"      "[Clean files in ../TenCrossCombination]"
+    printf "\n\t%-9s  %-40s"  "0.2.3"      "[Clean files in ../TenCrossCombination/Table]"
     printf "\n\t%-9s  %-40s"  "0.3"      "[Clean files for combinations of fifty cross secctions with same branch fractions]" 
     printf "\n\t%-9s  %-40s"  "0.3.1"      "[Clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks/FifityCrossCombinationWithSameBf]"
     printf "\n\t%-9s  %-40s"  "0.3.2"      "[Clean files in ../FiftyCrossCombinationWithSameBf]"
@@ -88,6 +89,14 @@ case $option in
            rm fit_ks_phase -rf
            rm job.* -rf
            cd ../../Run
+           ;;
+    0.2.3) echo "Cleaning files in ../TenCrossCombination/Table..."
+           cd ../TenCrossCombination/Table
+           cd Find
+           rm *txt -rf
+           cd ../MakeTable
+           rm *txt -rf
+           cd ../../../Run
            ;;
 
     # -------------------------------------------------------------------------------------
@@ -163,6 +172,12 @@ case $option in
            rm fit_ks_phase -rf
            rm job.* -rf
            cd ../../Run
+           cd ../TenCrossCombination/Table
+           cd Find
+           rm *txt -rf
+           cd ../MakeTable
+           rm *txt -rf
+           cd ../../../Run
 
            # FiftyCrossCombinationWithSameBf
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBf -rf
