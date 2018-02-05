@@ -6,7 +6,7 @@
 
 void MakeTable(){
 
-     const int tot = 150;
+     const int tot = 100;
 
      // load files
      ofstream table;
