@@ -4,7 +4,7 @@ You can get the source codes from https://github.com/zhixing1996/inclusive_Ks.gi
 
 ## Reset the programs 
 
-> ./Run/cleanup.sh 
+> ./Run/reset.sh 
 
 ## Note
 

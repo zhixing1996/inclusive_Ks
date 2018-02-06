@@ -15,28 +15,32 @@ usage() {
     printf "\nSYNOPSIS\n"
     printf "\n\t%-5s\n" "./submit.sh [OPTION]"
     printf "\nOPTIONS\n"
-    printf "\n\t%-9s  %-40s"  "0.1"      "[Build necessary directories for combinations of two cross sections with different relative phase(0~90)]" 
-    printf "\n\t%-9s  %-40s"  "0.1.1"      "[Generate ten cross sections with different relative phase]" 
-    printf "\n\t%-9s  %-40s"  "0.1.2"      "[Generate combinations]"
-    printf "\n\t%-9s  %-40s"  "0.1.3"      "[Submit jobs]"
-    printf "\n\t%-9s  %-40s"  "0.1.4"      "[Get branch fractions and relative phases]"
-    printf "\n\t%-9s  %-40s"  "0.1.5"      "[Make table]"
-    printf "\n\t%-9s  %-40s"  "0.2"      "[Build necessary directories for combinations of ten cross sections with different number of relative phase 90]" 
-    printf "\n\t%-9s  %-40s"  "0.2.1"      "[Generate two cross sections with relative phase 0 and 90]" 
-    printf "\n\t%-9s  %-40s"  "0.2.2"      "[Generate combinations]"
-    printf "\n\t%-9s  %-40s"  "0.2.3"      "[Submit jobs]"
-    printf "\n\t%-9s  %-40s"  "0.2.4"      "[Get branch fractions and relative phases]"
-    printf "\n\t%-9s  %-40s"  "0.2.5"      "[Make table]"
-    printf "\n\t%-9s  %-40s"  "0.3"      "[Build necessary directories for combinations of fifty cross sections with same branch fractions and random relative phases]" 
-    printf "\n\t%-9s  %-40s"  "0.3.1"      "[Generate ninety-one cross sections with same branch fractions]" 
-    printf "\n\t%-9s  %-40s"  "0.3.2"      "[Generate combinations]"
-    printf "\n\t%-9s  %-40s"  "0.3.3"      "[Submit jobs]"
-    printf "\n\t%-9s  %-40s"  "0.3.4"      "[Get branch fractions and relative phases]"
-    printf "\n\t%-9s  %-40s"  "0.3.5"      "[Make table]"
-    printf "\n\t%-9s  %-40s"  "0.4"      "[Build necessary directories for combinations of fifty cross sections with divided branch fractions and random relative phases]" 
-    printf "\n\t%-9s  %-40s"  "0.4.1"      "[Generate fifty cross sections with divided branch fractions and random relative phases as well as combinations and fit]" 
-    printf "\n\t%-9s  %-40s"  "0.4.2"      "[Get branch fractions and relative phases]"
-    printf "\n\t%-9s  %-40s"  "0.4.3"      "[Make table]"
+    printf "\n\t%-9s  %-40s"  "0.1"      "[Combinations of two cross sections with different relative phase(0~90)]" 
+    printf "\n\t%-9s  %-40s"  "0.1.1"      "Build necessary directories"
+    printf "\n\t%-9s  %-40s"  "0.1.2"      "Generate ten cross sections with different relative phase" 
+    printf "\n\t%-9s  %-40s"  "0.1.3"      "Generate combinations"
+    printf "\n\t%-9s  %-40s"  "0.1.4"      "Submit jobs"
+    printf "\n\t%-9s  %-40s"  "0.1.5"      "Get branch fractions and relative phases"
+    printf "\n\t%-9s  %-40s"  "0.1.6"      "Make table"
+    printf "\n\t%-9s  %-40s"  "0.2"      "[Combinations of ten cross sections with different number of relative phase 90]" 
+    printf "\n\t%-9s  %-40s"  "0.2.1"      "Build necessary directories"
+    printf "\n\t%-9s  %-40s"  "0.2.2"      "Generate two cross sections with relative phase 0 and 90" 
+    printf "\n\t%-9s  %-40s"  "0.2.3"      "Generate combinations"
+    printf "\n\t%-9s  %-40s"  "0.2.4"      "Submit jobs"
+    printf "\n\t%-9s  %-40s"  "0.2.5"      "Get branch fractions and relative phases"
+    printf "\n\t%-9s  %-40s"  "0.2.6"      "Make table"
+    printf "\n\t%-9s  %-40s"  "0.3"      "Combinations of fifty cross sections with same branch fractions and random relative phases]" 
+    printf "\n\t%-9s  %-40s"  "0.3.1"      "Build necessary directories"
+    printf "\n\t%-9s  %-40s"  "0.3.2"      "Generate ninety-one cross sections with same branch fractions" 
+    printf "\n\t%-9s  %-40s"  "0.3.3"      "Generate combinations"
+    printf "\n\t%-9s  %-40s"  "0.3.4"      "Submit jobs"
+    printf "\n\t%-9s  %-40s"  "0.3.5"      "Get branch fractions and relative phases"
+    printf "\n\t%-9s  %-40s"  "0.3.6"      "Make table"
+    printf "\n\t%-9s  %-40s"  "0.4"      "[Combinations of fifty cross sections with divided branch fractions and random relative phases]" 
+    printf "\n\t%-9s  %-40s"  "0.4.1"      "Build necessary directories"
+    printf "\n\t%-9s  %-40s"  "0.4.2"      "Generate fifty cross sections with divided branch fractions and random relative phases as well as combinations and fit" 
+    printf "\n\t%-9s  %-40s"  "0.4.3"      "Get branch fractions and relative phases"
+    printf "\n\t%-9s  %-40s"  "0.4.4"      "Make table"
 }
 
 
@@ -54,37 +58,39 @@ case $option in
     #  0.1 Combinations of two cross sections with different relative phase(0~90)
     # ---------------------------------------------------------------------------
 
-    0.1) echo "Building necessary directories..."
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombinationWithSameBfDiffPhase
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombinationWithSameBfDiffPhase/rootfile
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombinationWithSameBfDiffPhase/logfile
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombinationWithSameBfDiffPhase/cross
+    0.1) echo "Combinations of two cross sections with different relative phase(0~90)"
          ;;
-    0.1.1) echo "Generating ten cross sections with different relative phase..."
+    0.1.1) echo "Building necessary directories..."
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombinationWithSameBfDiffPhase
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombinationWithSameBfDiffPhase/rootfile
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombinationWithSameBfDiffPhase/logfile
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TwoCrossCombinationWithSameBfDiffPhase/cross
+           ;;
+    0.1.2) echo "Generating ten cross sections with different relative phase..."
            cd ../Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase
            ./GenCross.sh
            cd ../../../Run
            ;;
-    0.1.2) echo "Generating combinations..."
+    0.1.3) echo "Generating combinations..."
            cd ../Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase/GenCombination
            g++ -o combination combination.C
            ./combination
            cd ../../../../Run
            ;;
-    0.1.3) echo "Submitting jobs..."
+    0.1.4) echo "Submitting jobs..."
            cd ../Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase/Combination
            cp ../GenCombination/combination.txt .
            ./ROOTCompile fit_ks_phase
            bash sub
            cd ../../../../Run
            ;;
-    0.1.4) echo "Getting branch fractions and relative phases..."
+    0.1.5) echo "Getting branch fractions and relative phases..."
            cd ../Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase/Table/Find
            ./FindBf.sh
            ./FindPhase.sh
            cd ../../../../../Run
            ;;
-    0.1.5) echo "Making table..."
+    0.1.6) echo "Making table..."
            cd ../Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase/Table/MakeTable
            root -l -q MakeTable.cxx
            cd ../../../../../Run
@@ -93,38 +99,39 @@ case $option in
     # ----------------------------------------------------------------------------------
     #  0.2 Combinations of ten cross sections with different number of relative phase 90
     # ----------------------------------------------------------------------------------
-
-    0.2) echo "Building necessary directories..."
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase/rootfile
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase/logfile
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase/cross
+    0.2) echo "Combinations of ten cross sections with different number of relative phase 90"
          ;;
-    0.2.1) echo "Generating two cross sections with relative phase 0 and 90..."
+    0.2.1) echo "Building necessary directories..."
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase/rootfile
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase/logfile
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/TenCrossCombinationWithSameBfDiffNPhase/cross
+           ;;
+    0.2.2) echo "Generating two cross sections with relative phase 0 and 90..."
            cd ../Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase
            ./GenCross.sh
            cd ../../../Run
            ;;
-    0.2.2) echo "Generating combinations..."
+    0.2.3) echo "Generating combinations..."
            cd ../Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase/GenCombination
            g++ -o combination combination.C
            ./combination
            cd ../../../../Run
            ;;
-    0.2.3) echo "Submitting jobs..."
+    0.2.4) echo "Submitting jobs..."
            cd ../Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase/Combination
            cp ../GenCombination/combination.txt .
            ./ROOTCompile fit_ks_phase
            bash sub
            cd ../../../../Run
            ;;
-    0.2.4) echo "Getting branch fractions and relative phases..."
+    0.2.5) echo "Getting branch fractions and relative phases..."
            cd ../Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase/Table/Find
            ./FindBf.sh
            ./FindPhase.sh
            cd ../../../../../Run
            ;;
-    0.2.5) echo "Making table..."
+    0.2.6) echo "Making table..."
            cd ../Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase/Table/MakeTable
            root -l -q MakeTable.cxx
            cd ../../../../../Run
@@ -134,37 +141,39 @@ case $option in
     #  0.3 Combinations of fifty cross sections with same branch fractions and random relative pases
     # ----------------------------------------------------------------------------------------------
 
-    0.3) echo "Building necessary directories..."
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase 
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase/rootfile
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase/logfile
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase/cross
+    0.3) echo "Combinations of fifty cross sections with same branch fractions and random relative pases"
          ;;
-    0.3.1) echo "Generating ninety-one cross sections with same branch fraction..."
+    0.3.1) echo "Building necessary directories..."
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase 
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase/rootfile
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase/logfile
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase/cross
+           ;;
+    0.3.2) echo "Generating ninety-one cross sections with same branch fraction..."
            cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase
            ./GenCross.sh
            cd ../../../Run
            ;;
-    0.3.2) echo "Generating combinations..."
+    0.3.3) echo "Generating combinations..."
            cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase/GenCombination
            g++ -o combination combination.C
            ./combination
            cd ../../../../Run
            ;;
-    0.3.3) echo "Submitting jobs..."
+    0.3.4) echo "Submitting jobs..."
            cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase/Combination
            cp ../GenCombination/combination.txt .
            ./ROOTCompile fit_ks_phase
            bash sub
            cd ../../../../Run
            ;;
-    0.3.4) echo "Getting branch fractions and relative phases..."
+    0.3.5) echo "Getting branch fractions and relative phases..."
            cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase/Table/Find
            ./FindBf.sh
            ./FindPhase.sh
            cd ../../../../../Run
            ;;
-    0.3.5) echo "Making table..."
+    0.3.6) echo "Making table..."
            cd ../Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase/Table/MakeTable
            root -l -q MakeTable.cxx
            cd ../../../../../Run
@@ -174,24 +183,26 @@ case $option in
     #  0.4 Combinations of fifty cross sections with divided branch fractions and random relative pases
     # -------------------------------------------------------------------------------------------------
 
-    0.4) echo "Building necessary directories..."
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase 
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/rootfile
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/logfile
-         mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/cross
+    0.4) echo "Combinations of fifty cross sections with divided branch fractions and random relative pases"
          ;;
-    0.4.1) echo "Generating fifty cross sections with divided branch fractions and random relative pases as well as combinations and fitting..."
+    0.4.1) echo "Building necessary directories..."
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase 
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/rootfile
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/logfile
+           mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithDividedBfRandPhase/cross
+           ;;
+    0.4.2) echo "Generating fifty cross sections with divided branch fractions and random relative pases as well as combinations and fitting..."
            cd ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase
            hep_sub -g physics job
            cd ../../../Run
            ;;
-    0.4.2) echo "Getting branch fractions and relative phases..."
+    0.4.3) echo "Getting branch fractions and relative phases..."
            cd ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase/Table/Find
            ./FindBf.sh
            ./FindPhase.sh
            cd ../../../../../Run
            ;;
-    0.4.3) echo "Making table..."
+    0.4.4) echo "Making table..."
            cd ../Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase/Table/MakeTable
            root -l -q MakeTable.cxx
            cd ../../../../../Run
