@@ -29,7 +29,7 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.2.4"      "Submit jobs"
     printf "\n\t%-9s  %-40s"  "0.2.5"      "Get branch fractions and relative phases"
     printf "\n\t%-9s  %-40s"  "0.2.6"      "Make table"
-    printf "\n\t%-9s  %-40s"  "0.3"      "Combinations of fifty cross sections with same branch fractions and random relative phases]" 
+    printf "\n\t%-9s  %-40s"  "0.3"      "[Combinations of fifty cross sections with same branch fractions and random relative phases]" 
     printf "\n\t%-9s  %-40s"  "0.3.1"      "Build necessary directories"
     printf "\n\t%-9s  %-40s"  "0.3.2"      "Generate ninety-one cross sections with same branch fractions" 
     printf "\n\t%-9s  %-40s"  "0.3.3"      "Generate combinations"
