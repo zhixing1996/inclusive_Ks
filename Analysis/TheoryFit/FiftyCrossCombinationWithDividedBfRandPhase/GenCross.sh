@@ -68,7 +68,7 @@ do
         rnd=$(rand 0 90)
         if [ $rnd != $dominantrnd ]; then
             if [ $rnd != $rnd_back ]; then
-                # Must note: NormRnd= `echo "scale=8; ${IntRnd[$i]} / $sum " | bc -l` is wrong, "NormRnd=" can't be followed by blankspace
+                # Must note: NormRnd= `echo "scale=8; 0.35 * ${IntRnd[$sum]} / $sum " | bc -l` is wrong, "NormRnd=" can't be followed by blankspace
                 let "num = $j - 1"
                 NormRnd=`echo "scale=8; 0.35 * ${IntRnd[$num]} / $sum " | bc -l`
                 cp ../../EachPhase/$rnd . -rf
