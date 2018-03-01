@@ -117,6 +117,22 @@ case $option in
          ;;
 
     0.2.1) echo "Cleaning files for combinations of two cross sections with different relative phase(0~90)..."
+           rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/TwoCrossWithDiffPhase -rf
+           cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase
+           rm 0.01 0.015 -rf
+           cd GenCombination
+           rm combination.txt combination -rf
+           cd ../Combination
+           rm combination.txt -rf
+           rm fit_ks_phase -rf
+           rm job.* -rf
+           cd ../../../../../Run
+           cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Table
+           cd Find
+           rm *txt -rf
+           cd ../MakeTable
+           rm *txt -rf
+           cd ../../../../../../Run
            ;;
 
     0.2.2) echo "Cleaning files for combinations of ten cross sections with different number of relative phase 90..."
@@ -238,6 +254,22 @@ case $option in
          # -------------------------------
 
          # TwoCrossWithDiffPhase
+         rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/TwoCrossWithDiffPhase -rf
+         cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase
+         rm 0.01 0.015 -rf
+         cd GenCombination
+         rm combination.txt combination -rf
+         cd ../Combination
+         rm combination.txt -rf
+         rm fit_ks_phase -rf
+         rm job.* -rf
+         cd ../../../../../Run
+         cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Table
+         cd Find
+         rm *txt -rf
+         cd ../MakeTable
+         rm *txt -rf
+         cd ../../../../../../Run
 
          # TenCrossWithDiffNPhase
 
