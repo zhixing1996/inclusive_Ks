@@ -149,10 +149,10 @@ case $option in
            ;;
 
     0.1.3.1) echo "Building necessary directories..."
-             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/FiftyCrossCombinationWithSameBfRandPhase 
-             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/FiftyCrossCombinationWithSameBfRandPhase/rootfile
-             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/FiftyCrossCombinationWithSameBfRandPhase/logfile
-             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/FiftyCrossCombinationWithSameBfRandPhase/cross
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/FiftyCrossWithRandPhase 
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/FiftyCrossWithRandPhase/rootfile
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/FiftyCrossWithRandPhase/logfile
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/FiftyCrossWithRandPhase/cross
              ;;
     0.1.3.2) echo "Generating ninety-one cross sections with same branch fraction..."
              cd ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase
