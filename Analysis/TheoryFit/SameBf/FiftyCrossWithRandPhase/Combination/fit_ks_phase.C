@@ -225,7 +225,7 @@ int main(int argc, char *argv[])
          expcs_cor[i]=0;
    }
 
-    TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase/rootfile/fit_ks_phase";
+    TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/FiftyCrossWithRandPhase/rootfile/fit_ks_phase";
    for (int i=1; i<argc;i++){
       apple+="_";
       apple+=argv[i];
@@ -233,7 +233,7 @@ int main(int argc, char *argv[])
     apple+=".root";
 
     ofstream paras;
-    TString orange="/besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase/logfile/fit_ks_phase";
+    TString orange="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/FiftyCrossWithRandPhase/logfile/fit_ks_phase";
     for (int i=1; i<argc;i++){
       orange+="_";
       orange+=argv[i];
@@ -273,7 +273,7 @@ int main(int argc, char *argv[])
     ecm0err[14]=0.093E-3;
     ecm0err[15]=0.115E-3;
 
-    TString banana="/besfs/groups/tauqcd/jingmq/inclusive_Ks/FiftyCrossCombinationWithSameBfRandPhase/cross/fit_ks_phase";
+    TString banana="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/FiftyCrossWithRandPhase/cross/fit_ks_phase";
     for (int i=1; i<argc;i++){
       banana+="_";
       banana+=argv[i];
