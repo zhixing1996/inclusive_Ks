@@ -225,12 +225,6 @@ int main(int argc, char *argv[])
          expcs_cor[i]=0;
    }
 
-    int tag[2];
-
-    for(int i=1;i<argc;i++){
-       tag[i-1] =  atoi(argv[i]);
-    }
-
     TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/TwoCrossWithDiffPhase/rootfile/fit_ks_phase";
     for (int i=1; i<argc;i++){
       apple+="_";

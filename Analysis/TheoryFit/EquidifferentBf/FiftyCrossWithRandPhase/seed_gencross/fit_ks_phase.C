@@ -188,9 +188,7 @@ double intXS(double *ecm, double *par)
 
 }
 
-
-
-int main(int argc, char *argv[])
+int main()
 {
     gStyle->SetOptFit(100);
     std::cout<<setprecision(12);
@@ -212,83 +210,33 @@ int main(int argc, char *argv[])
     thecs->SetParName(3, "resolution");
     thecs->FixParameter(3, 9.11483e-04);
     thecs->SetParName(4, "BfKsX"); //BF of jpsi->KsX
-    thecs->SetParameter(4, 0.01); //
+    thecs->FixParameter(4, seed_Bf); //
     thecs->SetParName(5, "hs"); //h(s), free para for sigma_mumu
-    thecs->SetParameter(5, 3.5); //
+    thecs->FixParameter(5, 3.5); //
     thecs->SetParName(6, "phase"); //relative phase
-    thecs->SetParameter(6, 50); //
+    thecs->FixParameter(6, seed_Phase); //
 
     const int Npoints=16;
-    double ecm0[Npoints],expcs[Npoints],ecm0err[Npoints],expcserr[Npoints], expcs_cor[Npoints], expcserr_cor[Npoints],temp_cross,temp_ecm;
+    double ecm0[Npoints],expcs[Npoints],ecm0err[Npoints],expcserr[Npoints], expcs_cor[Npoints], expcserr_cor[Npoints];
+    ecm0[0] =3.050213; ecm0err[0] =0.026E-3;   //expcs_cor[0] = 4.64057 ; expcserr_cor[0] =0.0595;
+    ecm0[1] =3.059257; ecm0err[1] =0.028E-3;   //expcs_cor[1] = 4.50777 ; expcserr_cor[1] =0.0577;
+    ecm0[2] =3.080195; ecm0err[2] =0.023E-3;   //expcs_cor[2] = 4.75049 ; expcserr_cor[2] =0.1032;
+    ecm0[3] =3.083060; ecm0err[3] =0.043E-3;   //expcs_cor[3] = 4.71377 ; expcserr_cor[3] =0.1321;
+    ecm0[4] =3.089418; ecm0err[4] =0.022E-3;   //expcs_cor[4] = 4.76063 ; expcserr_cor[4] =0.0691;
+    ecm0[5] =3.092324; ecm0err[5] =0.025E-3;   //expcs_cor[5] = 4.77532 ; expcserr_cor[5] =0.0636;
+    ecm0[6] =3.095261; ecm0err[6] =0.084E-3;   //expcs_cor[6] = 37.0774 ; expcserr_cor[6] =0.3449;
+    ecm0[7] =3.095994; ecm0err[7] =0.081E-3;   //expcs_cor[7] = 155.092 ; expcserr_cor[7] =0.8031;
+    ecm0[8] =3.096390; ecm0err[8] =0.075E-3;   //expcs_cor[8] = 375.605 ; expcserr_cor[8] =1.1538;
+    ecm0[9] =3.097777; ecm0err[9] =0.076E-3;   //expcs_cor[9] = 672.478 ; expcserr_cor[9] =1.5436;
+    ecm0[10]=3.098904; ecm0err[10]=0.075E-3;   //expcs_cor[10]= 306.115 ; expcserr_cor[10]=1.0417;
+    ecm0[11]=3.099606; ecm0err[11]=0.093E-3;   //expcs_cor[11]= 135.731 ; expcserr_cor[11]=1.2203;
+    ecm0[12]=3.101923; ecm0err[12]=0.106E-3;   //expcs_cor[12]= 39.9175 ; expcserr_cor[12]=0.4440;
+    ecm0[13]=3.106144; ecm0err[13]=0.090E-3;   //expcs_cor[13]= 22.1767 ; expcserr_cor[13]=0.2877;
+    ecm0[14]=3.112615; ecm0err[14]=0.093E-3;   //expcs_cor[14]= 15.5692 ; expcserr_cor[14]=0.3374;
+    ecm0[15]=3.120442; ecm0err[15]=0.115E-3;   //expcs_cor[15]= 11.2154 ; expcserr_cor[15]=0.2799;
 
-   for (int i=0;i<Npoints;i++ ){
-         expcs_cor[i]=0;
-   }
-
-    TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/TwoCrossWithDiffPhase/rootfile/fit_ks_phase";
-    for (int i=1; i<argc;i++){
-      apple+="_";
-      apple+=argv[i];
-    }
-    apple+=".root";
-
-    ofstream paras;
-    TString orange="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/TwoCrossWithDiffPhase/logfile/fit_ks_phase";
-    for (int i=1; i<argc;i++){
-      orange+="_";
-      orange+=argv[i];
-    }
-    orange+=".txt";
-    paras.open(orange);
-
-    ifstream zero("../0/fit_ks_phase.txt");
-    for(int i=0;i<Npoints;i++){
-        zero >> ecm0[i] >> temp_cross;
-        expcs_cor[i]+= temp_cross;
-    }
-
-    ifstream ninety("../90/fit_ks_phase.txt");
-    for(int i=0;i<Npoints;i++){
-        ninety >> ecm0[i] >> temp_cross;
-        expcs_cor[i]+= temp_cross;
-    }
-
-    for (int i=0;i<Npoints;i++ ){
-         expcserr_cor[i]=0.005*expcs_cor[i];
-    }
-
-    ecm0err[0] =0.026E-3;
-    ecm0err[1] =0.028E-3;
-    ecm0err[2] =0.023E-3;
-    ecm0err[3] =0.043E-3;
-    ecm0err[4] =0.022E-3;
-    ecm0err[5] =0.025E-3;
-    ecm0err[6] =0.084E-3;
-    ecm0err[7] =0.081E-3;
-    ecm0err[8] =0.075E-3;
-    ecm0err[9] =0.076E-3;
-    ecm0err[10]=0.075E-3;
-    ecm0err[11]=0.093E-3;
-    ecm0err[12]=0.106E-3;
-    ecm0err[13]=0.090E-3;
-    ecm0err[14]=0.093E-3;
-    ecm0err[15]=0.115E-3;
-
-    TString banana="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/TwoCrossWithDiffPhase/cross/fit_ks_phase";
-    for (int i=1; i<argc;i++){
-      banana+="_";
-      banana+=argv[i];
-    }
-    banana+=".txt";
-
-    ofstream fitdat(banana);
-    for(int jj=0;jj<Npoints;jj++){
-      fitdat<<ecm0[jj]<<" "<<expcs_cor[jj]<<endl;
-    }
-    fitdat.close();
-  
     TGraphErrors * grapherrors_cor=new TGraphErrors(Npoints,ecm0,expcs_cor,ecm0err,expcserr_cor); 
-    grapherrors_cor->Fit(thecs,"EV0");
+    //grapherrors_cor->Fit(thecs,"EV0");
 
     grapherrors_cor->GetXaxis()->SetTitle("E (GeV)");
     grapherrors_cor->GetYaxis()->SetTitle("cross section (nb)");
@@ -302,22 +250,33 @@ int main(int argc, char *argv[])
     grapherrors_cor->SetMarkerSize(1.1);
     grapherrors_cor->SetMarkerColor(2);
     grapherrors_cor->SetLineColor(2);
-    grapherrors_cor->SetLineColor(2);    thecs->SetNpx(499);
-    grapherrors_cor->SetLineColor(2);
-    grapherrors_cor->SetLineColor(2);    grapherrors_cor->Draw("ape");
+    thecs->SetNpx(499);
+
+    grapherrors_cor->Draw("ape");
     thecs->SetLineColor(4);
-    thecs->Draw("same");
+    thecs->Draw();
 
-    paras<<"chi2 "<<thecs->GetChisquare()<<"      ndf "<<thecs->GetNDF()<<"    prob "<<thecs->GetProb()<<endl;
-    paras<<"par0 "<<thecs->GetParameter(0)<<"    err0 "<<thecs->GetParError(0)<<endl;
-    paras<<"par1 "<<thecs->GetParameter(1)<<"    err1 "<<thecs->GetParError(1)<<endl;
-    paras<<"par2 "<<thecs->GetParameter(2)<<"    err2 "<<thecs->GetParError(2)<<endl;
-    paras<<"par3 "<<thecs->GetParameter(3)<<"    err3 "<<thecs->GetParError(3)<<endl;
-    paras<<"par4 "<<thecs->GetParameter(4)<<"    err4 "<<thecs->GetParError(4)<<endl;
-    paras<<"par5 "<<thecs->GetParameter(5)<<"    err5 "<<thecs->GetParError(5)<<endl;
-    paras<<"par6 "<<thecs->GetParameter(6)<<"    err6 "<<thecs->GetParError(6)<<endl;
-    paras.close();
+    std::vector<double> xfit,yfit;xfit.clear();yfit.clear();
+    for(int jj=0;jj<Npoints;jj++){
+      double eval = thecs->Eval(ecm0[jj]);
+      xfit.push_back(ecm0[jj]);
+      yfit.push_back(eval);
+    }
 
-    canvas->SaveAs(apple);
+    ofstream fitdat("fit_ks_phase.txt");
+    for(int jj=0;jj<Npoints;jj++){
+      fitdat<<xfit[jj]<<" "<<yfit[jj]<<endl;
+    }
+
+    cout<<"chi2 "<<thecs->GetChisquare()<<"      ndf "<<thecs->GetNDF()<<"    prob "<<thecs->GetProb()<<endl;
+    cout<<"par0 "<<thecs->GetParameter(0)<<"    err0 "<<thecs->GetParError(0)<<endl;
+    cout<<"par1 "<<thecs->GetParameter(1)<<"    err1 "<<thecs->GetParError(1)<<endl;
+    cout<<"par2 "<<thecs->GetParameter(2)<<"    err2 "<<thecs->GetParError(2)<<endl;
+    cout<<"par3 "<<thecs->GetParameter(3)<<"    err3 "<<thecs->GetParError(3)<<endl;
+    cout<<"par4 "<<thecs->GetParameter(4)<<"    err4 "<<thecs->GetParError(4)<<endl;
+    cout<<"par5 "<<thecs->GetParameter(5)<<"    err5 "<<thecs->GetParError(5)<<endl;
+    cout<<"par6 "<<thecs->GetParameter(6)<<"    err6 "<<thecs->GetParError(6)<<endl;
+
+    canvas->SaveAs("fit_ks_phase.root");
     return 0;
 }

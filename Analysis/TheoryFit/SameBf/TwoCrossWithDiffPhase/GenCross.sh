@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for (( i =0; i<100; i= i+10))
+for i in 0 90 
 do
   mkdir $i
   cd $i

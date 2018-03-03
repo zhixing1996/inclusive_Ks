@@ -139,6 +139,17 @@ case $option in
            ;;
 
     0.2.3) echo "Cleaning files for combinations of fifty cross sections with random relative phases..."
+           rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/FiftyCrossWithRandPhase -rf
+           cd ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase
+           rm Combination -rf
+           rm job.* -rf
+           cd ../../../../Run
+           cd ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/Table
+           cd Find
+           rm *txt -rf
+           cd ../MakeTable
+           rm *txt -rf
+           cd ../../../../../../Run
            ;;
 
     # ---------------------------
@@ -149,9 +160,25 @@ case $option in
          ;;
 
     0.3.1) echo "Cleaning files for combinations of two cross sections with different relative phase(0~90)..."
+           rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase -rf
+           cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase
+           rm Combination -rf
+           rm job.* -rf
+           cd ../../../../Run
+           cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Table
+           cd Find
+           rm *txt -rf
+           cd ../MakeTable
+           rm *txt -rf
+           cd ../../../../../../Run
            ;;
 
     0.3.2) echo "Cleaning files for combinations of ten cross sections with different number of relative phase 90..."
+           rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase -rf
+           cd ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase
+           rm Combination -rf
+           rm job.* -rf
+           cd ../../../../Run
            ;;
 
     0.3.3) echo "Cleaning files for combinations of fifty cross sections with random relative phases..."
@@ -274,16 +301,43 @@ case $option in
          # TenCrossWithDiffNPhase
 
          # FiftyCrossWithRandPhase
+         rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/FiftyCrossWithRandPhase -rf
+         cd ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase
+         rm Combination -rf
+         rm job.* -rf
+         cd ../../../../Run
+         cd ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/Table
+         cd Find
+         rm *txt -rf
+         cd ../MakeTable
+         rm *txt -rf
+         cd ../../../../../../Run
 
          # ----------------------
          # Clean files for RandBf
          # ----------------------
 
          # TwoCrossWithDiffPhase
+         rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase -rf
+         cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase
+         rm Combination -rf
+         rm job.* -rf
+         cd ../../../../Run
+         cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Table
+         cd Find
+         rm *txt -rf
+         cd ../MakeTable
+         rm *txt -rf
+         cd ../../../../../../Run
 
          # TenCrossWithDiffNPhase
+         rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase -rf
+         cd ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase
+         rm Combination -rf
+         rm job.* -rf
+         cd ../../../../Run
 
-         # FiftyCrossWithBfRandPhase
+         # FiftyCrossWithRandPhase
          rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/FiftyCrossWithRandPhase -rf
          cd ../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase
          rm Combination -rf

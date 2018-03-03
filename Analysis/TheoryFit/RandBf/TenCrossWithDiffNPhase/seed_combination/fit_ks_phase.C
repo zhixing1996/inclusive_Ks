@@ -225,37 +225,48 @@ int main(int argc, char *argv[])
          expcs_cor[i]=0;
    }
 
-    TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/TwoCrossWithDiffPhase/rootfile/fit_ks_phase";
+    int tag[10];
+
+    for(int i=1;i<argc;i++){
+       tag[i-1] =  atoi(argv[i]);
+    }
+
+    int N = 0,totNum = 10;
+    for(int i=1;i<argc;i++){
+       if(tag[i-1]==1) N++;
+    }
+
+    TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase/Combination_Seed/rootfile/fit_ks_phase";
     for (int i=1; i<argc;i++){
       apple+="_";
       apple+=argv[i];
-    }
+     }
     apple+=".root";
 
     ofstream paras;
-    TString orange="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/TwoCrossWithDiffPhase/logfile/fit_ks_phase";
+    TString orange="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase/Combination_Seed/logfile/fit_ks_phase";
     for (int i=1; i<argc;i++){
       orange+="_";
       orange+=argv[i];
-    }
+     }
     orange+=".txt";
     paras.open(orange);
 
     ifstream zero("../0/fit_ks_phase.txt");
     for(int i=0;i<Npoints;i++){
         zero >> ecm0[i] >> temp_cross;
-        expcs_cor[i]+= temp_cross;
+        expcs_cor[i]+= temp_cross*(totNum-N);
     }
 
     ifstream ninety("../90/fit_ks_phase.txt");
     for(int i=0;i<Npoints;i++){
         ninety >> ecm0[i] >> temp_cross;
-        expcs_cor[i]+= temp_cross;
+        expcs_cor[i]+= temp_cross*N;
     }
-
-    for (int i=0;i<Npoints;i++ ){
-         expcserr_cor[i]=0.005*expcs_cor[i];
-    }
+  
+   for (int i=0;i<Npoints;i++ ){
+        expcserr_cor[i]=0.005*expcs_cor[i];
+   }
 
     ecm0err[0] =0.026E-3;
     ecm0err[1] =0.028E-3;
@@ -274,11 +285,11 @@ int main(int argc, char *argv[])
     ecm0err[14]=0.093E-3;
     ecm0err[15]=0.115E-3;
 
-    TString banana="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/TwoCrossWithDiffPhase/cross/fit_ks_phase";
+    TString banana="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase/Combination_Seed/cross/fit_ks_phase";
     for (int i=1; i<argc;i++){
       banana+="_";
       banana+=argv[i];
-    }
+     }
     banana+=".txt";
 
     ofstream fitdat(banana);
@@ -307,6 +318,7 @@ int main(int argc, char *argv[])
     grapherrors_cor->SetLineColor(2);    grapherrors_cor->Draw("ape");
     thecs->SetLineColor(4);
     thecs->Draw("same");
+    //thecs->Draw();
 
     paras<<"chi2 "<<thecs->GetChisquare()<<"      ndf "<<thecs->GetNDF()<<"    prob "<<thecs->GetProb()<<endl;
     paras<<"par0 "<<thecs->GetParameter(0)<<"    err0 "<<thecs->GetParError(0)<<endl;

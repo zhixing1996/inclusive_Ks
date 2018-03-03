@@ -225,37 +225,42 @@ int main(int argc, char *argv[])
          expcs_cor[i]=0;
    }
 
-    TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/TwoCrossWithDiffPhase/rootfile/fit_ks_phase";
+    TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/rootfile/fit_ks_phase_combination";
     for (int i=1; i<argc;i++){
       apple+="_";
       apple+=argv[i];
-    }
+     }
     apple+=".root";
 
     ofstream paras;
-    TString orange="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/TwoCrossWithDiffPhase/logfile/fit_ks_phase";
+    TString orange="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/logfile/fit_ks_phase_combination";
     for (int i=1; i<argc;i++){
       orange+="_";
       orange+=argv[i];
-    }
+     }
     orange+=".txt";
     paras.open(orange);
 
-    ifstream zero("../0/fit_ks_phase.txt");
-    for(int i=0;i<Npoints;i++){
-        zero >> ecm0[i] >> temp_cross;
-        expcs_cor[i]+= temp_cross;
+    int Phase[2]; double Bf[2];
+    ifstream BFPHASE("../BfPhase_combination.txt");
+    for(int i=0;i<2;i++){
+        BFPHASE >> Bf[i] >> Phase[i];
     }
 
-    ifstream ninety("../90/fit_ks_phase.txt");
-    for(int i=0;i<Npoints;i++){
-        ninety >> ecm0[i] >> temp_cross;
-        expcs_cor[i]+= temp_cross;
-    }
+    for (int i=0;i<2;i++){
+      stringstream stream;
+      stream << Phase[i];
+      TString grape="../"+stream.str()+"/fit_ks_phase.txt";
+      ifstream cross(grape);
+      for(int j=0;j<Npoints;j++){
+          cross >> ecm0[j] >> temp_cross;
+          expcs_cor[j]+= temp_cross;
+      }
+   }  
 
-    for (int i=0;i<Npoints;i++ ){
-         expcserr_cor[i]=0.005*expcs_cor[i];
-    }
+   for (int i=0;i<Npoints;i++ ){
+        expcserr_cor[i]=0.005*expcs_cor[i];
+   }
 
     ecm0err[0] =0.026E-3;
     ecm0err[1] =0.028E-3;
@@ -274,17 +279,18 @@ int main(int argc, char *argv[])
     ecm0err[14]=0.093E-3;
     ecm0err[15]=0.115E-3;
 
-    TString banana="/besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/TwoCrossWithDiffPhase/cross/fit_ks_phase";
+    TString banana="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/cross/fit_ks_phase_combination";
     for (int i=1; i<argc;i++){
       banana+="_";
       banana+=argv[i];
-    }
+     }
     banana+=".txt";
 
     ofstream fitdat(banana);
     for(int jj=0;jj<Npoints;jj++){
       fitdat<<ecm0[jj]<<" "<<expcs_cor[jj]<<endl;
     }
+    fitdat<< Bf <<endl;
     fitdat.close();
   
     TGraphErrors * grapherrors_cor=new TGraphErrors(Npoints,ecm0,expcs_cor,ecm0err,expcserr_cor); 
@@ -307,6 +313,7 @@ int main(int argc, char *argv[])
     grapherrors_cor->SetLineColor(2);    grapherrors_cor->Draw("ape");
     thecs->SetLineColor(4);
     thecs->Draw("same");
+    //thecs->Draw();
 
     paras<<"chi2 "<<thecs->GetChisquare()<<"      ndf "<<thecs->GetNDF()<<"    prob "<<thecs->GetProb()<<endl;
     paras<<"par0 "<<thecs->GetParameter(0)<<"    err0 "<<thecs->GetParError(0)<<endl;

@@ -1,0 +1,8 @@
+#!/bin/bash
+ if [ -e combination.txt ]; then
+ while read index a b c d e f g h i j 
+ do
+./fit_ks_phase $a $b $c $d $e $f $g $h $i $j 
+done < combination.txt
+fi
+
