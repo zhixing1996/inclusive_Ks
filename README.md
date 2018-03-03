@@ -22,21 +22,47 @@ This program contains the following study:
 
 ## Research of branching fraction of inclusive Ks by studying relative phase brach fraction
 
+### Same branch fraction
+
 > Combinations of two cross sections with different relative phase(0~90)
 
-- RESULTS PATH:./Analysis/TheoryFit/TwoCrossCombinationWithSameBfDiffPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Table/MakeTable
 
 > Combinations of ten cross sections with different number of relative phase 90
 
-- RESULTS PATH:./Analysis/TheoryFit/TenCrossCombinationWithSameBfDiffNPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Table/MakeTable
 
-> Combinations of fifty cross sections with same branch fractions and random relative phases
+> Combinations of fifty cross sections with random relative phases
 
-- RESULTS PATH:./Analysis/TheoryFit/FiftyCrossCombinationWithSameBfRandPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Table/MakeTable
 
-> Combinations of fifty cross secctions with divided branch fractions and random relative phases (dominat process occupy 15% of branch fraction the sum of others is 35%)
+### Equidifferent branch fraction
 
-- RESULTS PATH:./Analysis/TheoryFit/FiftyCrossCombinationWithDividedBfRandPhase/Table/MakeTable
+> Combinations of two cross sections with different relative phase(0~90)
+
+- RESULTS PATH:./Analysis/TheoryFit/EquidiffereentBf/TwoCrossWithDiffPhase/Table/MakeTable
+
+> Combinations of ten cross sections with different number of relative phase 90
+
+- RESULTS PATH:./Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Table/MakeTable
+
+> Combinations of fifty cross sections with random relative phases
+
+- RESULTS PATH:./Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/Table/MakeTable
+
+### Random branch fraction
+
+> Combinations of two cross sections with different relative phase(0~90)
+
+- RESULTS PATH:./Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/MakeTable
+
+> Combinations of ten cross sections with different number of relative phase 90
+
+- RESULTS PATH:./Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/Table/MakeTable
+
+> Combinations of fifty cross sections with random relative phases (total: 50%, in which domination process occupied 35%)
+
+- RESULTS PATH:./Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/Table/MakeTable
 
 ## For developers 
 
