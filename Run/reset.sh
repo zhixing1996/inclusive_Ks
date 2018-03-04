@@ -176,6 +176,9 @@ case $option in
     0.3.2) echo "Cleaning files for combinations of ten cross sections with different number of relative phase 90..."
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase -rf
            cd ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase
+           cd GenCombination
+           rm combination.txt combination -rf
+           cd ../
            rm Combination -rf
            rm job.* -rf
            cd ../../../../Run
@@ -333,6 +336,9 @@ case $option in
          # TenCrossWithDiffNPhase
          rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase -rf
          cd ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase
+         cd GenCombination
+         rm combination.txt combination -rf
+         cd ../
          rm Combination -rf
          rm job.* -rf
          cd ../../../../Run

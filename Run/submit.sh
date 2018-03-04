@@ -58,9 +58,10 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.3.1.4"      "Make table"
     printf "\n\t%-9s  %-40s"  "0.3.2"      "[Combinations of ten cross sections with different number of relative phase 90]"
     printf "\n\t%-9s  %-40s"  "0.3.2.1"      "Build necessary directories"
-    printf "\n\t%-9s  %-40s"  "0.3.2.2"      "Generate cross sections with divided branch fractions and different number of relative phases as well as combinations and fit"
-    printf "\n\t%-9s  %-40s"  "0.3.2.3"      ""
+    printf "\n\t%-9s  %-40s"  "0.3.2.2"      "Generate combinations"
+    printf "\n\t%-9s  %-40s"  "0.3.2.3"      "Generate cross sections with divided branch fractions and different number of relative phases as well as combinations and fit"
     printf "\n\t%-9s  %-40s"  "0.3.2.4"      ""
+    printf "\n\t%-9s  %-40s"  "0.3.2.5"      ""
     printf "\n\t%-9s  %-40s"  "0.3.3"      "[Combinations of fifty cross sections with random branch fractions and random relative phases]" 
     printf "\n\t%-9s  %-40s"  "0.3.3.1"      "Build necessary directories"
     printf "\n\t%-9s  %-40s"  "0.3.3.2"      "Generate cross sections with divided branch fractions and random relative phases as well as combinations and fit" 
@@ -362,16 +363,23 @@ case $option in
              done
              ;;
 
-    0.3.2.2) echo "Generating cross sections with random branch fractions and different number of relative pases as well as combinations and fitting..."
+    0.3.2.2) echo "Generating combinations"
+             cd ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/GenCombination
+             g++ -o combination combination.C
+             ./combination
+             cd ../../../../../Run
+             ;;
+
+    0.3.2.3) echo "Generating cross sections with random branch fractions and different number of relative pases as well as combinations and fitting..."
              cd ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase
              hep_sub -g physics job
              cd ../../../../Run
              ;;
    
-    0.3.2.3) echo ""
+    0.3.2.4) echo ""
              ;;
   
-    0.3.2.4) echo ""
+    0.3.2.5) echo ""
              ;;
 
     0.3.3) echo "Combinations of fifty cross sections with random relative pases"
