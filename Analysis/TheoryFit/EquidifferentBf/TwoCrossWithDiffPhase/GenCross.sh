@@ -4,7 +4,7 @@ for i in 0.01 0.015
 do
   mkdir $i
   cd $i
-  for i in 0 90
+  for j in 0 90
   do
     mkdir $j
     cd $j
