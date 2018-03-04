@@ -6,7 +6,7 @@ do
    cp ../../seed_combination/ ./combination -rf
    cp ../../GenCombination/combination.txt ./combination/ -rf
    cd combination
-   seed -i "s/Combination_Seed/Combination$i/g" fit_ks_phase.C
+   sed -i "s/Combination_Seed/Combination$i/g" fit_ks_phase.C
    ./ROOTCompile fit_ks_phase
    ./job
    cd ../../../
