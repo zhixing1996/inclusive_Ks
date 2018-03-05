@@ -32,11 +32,9 @@ void MakeTable(){
      }
 
      // output
-         table<<"Number of 90 degree(relative phase)"<<" "<<"Branch Ratio"<<"    "<<"Output Phase";
-         table<<"           "<<"Output Branch Ratio"<<" "<<endl;
+         table<<"Number of 90 degree(relative phase)"<<"\t"<<"Branch Ratio"<<"\t"<<"Output Phase"<<"\t"<<"Output Branch Ratio"<<endl;
      for (Int_t i=0;i<tot;i++){
-         table<<"                "<<i<<"                 ";
-         table<<"    0.10    "<<phase[i]<<"+/-"<<phaseerr[i]<<"        "<<bf[i]<<"+/-"<<bferr[i]<<" "<<endl;
+         table<<i<<"\t"<<"0.10"<<"\t"<<phase[i]<<"+/-"<<phaseerr[i]<<"\t"<<bf[i]<<"+/-"<<bferr[i]<<endl;
      }
 
      table.close();
