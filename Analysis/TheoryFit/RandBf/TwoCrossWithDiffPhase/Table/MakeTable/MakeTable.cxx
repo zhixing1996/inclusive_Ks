@@ -6,14 +6,13 @@
 
 void MakeTable(){
 
-     const int tot = 45;
+     const int tot = 50;
 
      // load files
      ofstream table;
      table.open("Table.txt");
      ifstream Bf("../Find/Bf.txt");
      ifstream Phase("../Find/Phase.txt");
-     ifstream Combination("../../GenCombination/combination.txt");
 
      // read 
      double bf[tot],bferr[tot];
@@ -26,18 +25,11 @@ void MakeTable(){
          Phase>>phase[i]>>phaseerr[i];
      }
 
-     int N,tag[tot][10];
-     for (Int_t i=0;i<tot;i++){
-         Combination>>N>>tag[i][0]>>tag[i][1]>>tag[i][2]>>tag[i][3]>>tag[i][4]>>tag[i][5]>>tag[i][6]>>tag[i][7]>>tag[i][8]>>tag[i][9];
-     }
-
      // output
-         table<<"Chose Phase (degree) : 0 10 20 30 40 50 60 70 80 90"<<" "<<"Branch Ratio"<<"    "<<"Output Phase";
-         table<<"           "<<"Output Branch Ratio"<<" "<<endl;
+         table<<"Specific combinations of phase can be founde in ../../Combination/CombinationX(X:1~50) with rank : Bf + Phase"<<endl;
+         table<<"Number"<<"\t"<<"Branch Ratio"<<"\t"<<"Output Phase"<<"\t"<<"Output Branch Ratio"<<"\t"<<endl;
      for (Int_t i=0;i<tot;i++){
-         table<<"                       "<<tag[i][0]<<" "<<tag[i][1]<<"  "<<tag[i][2]<<"  "<<tag[i][3]<<"  "<<tag[i][4]<<"  ";
-         table<<tag[i][5]<<"  "<<tag[i][6]<<"  "<<tag[i][7]<<"  "<<tag[i][8]<<"  "<<tag[i][9]<<"  ";
-         table<<"    0.02    "<<phase[i]<<"+/-"<<phaseerr[i]<<"        "<<bf[i]<<"+/-"<<bferr[i]<<" "<<endl;
+         table<<i<<"\t"<<"0.025"<<"\t"<<phase[i]<<"+/-"<<phaseerr[i]<<"\t"<<bf[i]<<"+/-"<<bferr[i]<<endl;
      }
 
      table.close();
