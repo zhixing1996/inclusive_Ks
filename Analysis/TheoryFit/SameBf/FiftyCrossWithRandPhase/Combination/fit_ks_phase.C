@@ -216,7 +216,7 @@ int main(int argc, char *argv[])
     thecs->SetParName(5, "hs"); //h(s), free para for sigma_mumu
     thecs->SetParameter(5, 3.5); //
     thecs->SetParName(6, "phase"); //relative phase
-    thecs->FixParameter(6, 0); //
+    thecs->SetParameter(6, 0); //
 
     const int Npoints=16;
     double ecm0[Npoints],expcs[Npoints],ecm0err[Npoints],expcserr[Npoints], expcs_cor[Npoints], expcserr_cor[Npoints],temp_cross,temp_ecm;

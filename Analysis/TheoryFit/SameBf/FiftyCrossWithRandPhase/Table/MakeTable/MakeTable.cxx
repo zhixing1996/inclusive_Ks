@@ -33,11 +33,9 @@ void MakeTable(){
 
      // output
          table<<"Specific combinations of phase can be founde in ../../GenCombination/combination.txt with rank : Number + 50 degrees"<<endl;
-         table<<"Number"<<"\t"<<"Sum of Branch Ratio"<<"\t"<<"Output Phase";
-         table<<"\t"<<"Output Branch Ratio"<<"\t"<<endl;
+         table<<"Number"<<"\t"<<"Branch Ratio"<<"\t"<<"Output Phase"<<"\t"<<"Output Branch Ratio"<<endl;
      for (Int_t i=0;i<tot;i++){
-         table<<i<<"\t";
-         table<<"\t"<<"0.5"<<"\t"<<phase[i]<<"+/-"<<phaseerr[i]<<"\t"<<bf[i]<<"+/-"<<bferr[i]<<" "<<endl;
+         table<<i<<"\t"<<"0.5"<<"\t"<<phase[i]<<"+/-"<<phaseerr[i]<<"\t"<<bf[i]<<"+/-"<<bferr[i]<<endl;
      }
 
      table.close();
