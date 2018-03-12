@@ -104,6 +104,14 @@ case $option in
            ;;
 
     0.2.2) echo "Cleaning files for combinations of ten cross sections with different number of relative phase 90..."
+           rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/TenCrossWithDiffNPhase -rf
+           rm ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/0.* -rf
+           rm ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/GenCombination/combination.txt ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/GenCombination/combination -rf
+           rm ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Combination/combination.txt -rf
+           rm ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Combination/fit_ks_phase -rf
+           rm ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Combination/job.* -rf
+           rm ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Table/Find/*txt -rf
+           rm ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Table/MakeTable/*txt -rf
            ;;
 
     0.2.3) echo "Cleaning files for combinations of fifty cross sections with random relative phases..."
