@@ -45,6 +45,13 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.2.1.4"      "Submit jobs"
     printf "\n\t%-9s  %-40s"  "0.2.1.5"      "Get branch fractions and relative phases"
     printf "\n\t%-9s  %-40s"  "0.2.1.6"      "Make table"
+    printf "\n\t%-9s  %-40s"  "0.2.2"      "[Combinations of ten cross sections with different number of relative phase 90]"
+    printf "\n\t%-9s  %-40s"  "0.2.2.1"      "Build necessary directories"
+    printf "\n\t%-9s  %-40s"  "0.2.2.2"      "Generate cross sections with relative phase 0 and 90"
+    printf "\n\t%-9s  %-40s"  "0.2.2.3"      "Generate combinations"
+    printf "\n\t%-9s  %-40s"  "0.2.2.4"      "Submit jobs"
+    printf "\n\t%-9s  %-40s"  "0.2.2.5"      "Get branch fractions and relative phases"
+    printf "\n\t%-9s  %-40s"  "0.2.2.6"      "Make table"
     printf "\n\t%-9s  %-40s"  "0.2.3"      "[Combinations of fifty cross sections with equidifferent branch fractions and random relative phases]" 
     printf "\n\t%-9s  %-40s"  "0.2.3.1"      "Build necessary directories"
     printf "\n\t%-9s  %-40s"  "0.2.3.2"      "Generate cross sections with divided branch fractions and random relative phases as well as combinations and fit" 
@@ -101,27 +108,32 @@ case $option in
              mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/SameBf/TwoCrossWithDiffPhase/cross
              ;;
     0.1.1.2) echo "Generating cross sections with different relative phase..."
-             ./../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/GenCross.sh
+             cd ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/
+             ./GenCross.sh
              ;;
 
     0.1.1.3) echo "Generating combinations..."
-             g++ -o ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/GenCombination/combination ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/GenCombination/combination.C
-             ./../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/GenCombination/combination
+             cd ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/GenCombination/
+             g++ -o combination combination.C
+             ./combination
              ;;
 
     0.1.1.4) echo "Submitting jobs..."
-             cp ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/GenCombination/combination.txt ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Combination/
-             ./../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Combination/ROOTCompile ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Combination/ROOTCompile/fit_ks_phase
-             bash ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Combination/sub
+             cd ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Combination/
+             cp ../GenCombination/combination.txt .
+             ./ROOTCompile fit_ks_phase
+             bash sub
              ;;
 
     0.1.1.5) echo "Getting branch fractions and relative phases..."
-             ./../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Table/Find/FindBf.sh
-             ./../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Table/Find/FindPhase.sh
+             cd ./../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Table/Find/
+             ./FindBf.sh
+             ./FindPhase.sh
              ;;
 
     0.1.1.6) echo "Making table..."
-             root -l -q ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Table/MakeTable/MakeTable.cxx
+             cd ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Table/MakeTable/
+             root -l -q MakeTable.cxx
              ;;
 
     0.1.2) echo "Combinations of ten cross sections with different number of relative phase 90"
@@ -135,27 +147,32 @@ case $option in
              ;;
 
     0.1.2.2) echo "Generating cross sections with relative phase 0 and 90..."
-             ./../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/GenCross.sh
+             cd ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/
+             ./GenCross.sh
              ;;
 
     0.1.2.3) echo "Generating combinations..."
-             g++ -o ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/GenCombination/combination ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/GenCombination/combination.C
-             ./../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/GenCombination/combination
+             cd ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/GenCombination/combination
+             g++ -o combination combination.C
+             ./combination
              ;;
 
     0.1.2.4) echo "Submitting jobs..."
-             cp ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/GenCombination/combination.txt ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Combination/
-             ./../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Combination/ROOTCompile ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Combination/fit_ks_phase
-             bash ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Combination/sub
+             cd ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Combination/
+             cp ../GenCombination/combination.txt .
+             ./ROOTCompile fit_ks_phase
+             bash sub
              ;;
 
     0.1.2.5) echo "Getting branch fractions and relative phases..."
-             ./../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Table/Find/FindBf.sh
-             ./../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Table/Find/FindPhase.sh
+             cd ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Table/Find/
+             ./Find/FindBf.sh
+             ./Find/FindPhase.sh
              ;;
 
     0.1.2.6) echo "Making table..."
-             root -l -q ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Table/MakeTable/MakeTable.cxx
+             cd ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Table/MakeTable/
+             root -l -q MakeTable.cxx
              ;;
 
     0.1.3) echo "Combinations of fifty cross sections with same branch fractions and random relative pases"
@@ -169,27 +186,32 @@ case $option in
              ;;
 
     0.1.3.2) echo "Generating cross sections with same branch fraction..."
-             ./../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/GenCross.sh
+             cd ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/
+             ./GenCross.sh
              ;;
 
     0.1.3.3) echo "Generating combinations..."
-             g++ -o ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/GenCombination/combination ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/GenCombination/combination.C
-             ./../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/GenCombination/combination
+             cd ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/GenCombination/
+             g++ -o combination combination.C
+             ./combination
              ;;
 
     0.1.3.4) echo "Submitting jobs..."
-             cp ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/GenCombination/combination.txt ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Combination/
-             ./../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Combination/ROOTCompile ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Combination/fit_ks_phase
-             bash ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Combination/sub
+             cd ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Combination/
+             cp ../GenCombination/combination.txt .
+             ./ROOTCompile fit_ks_phase
+             bash sub
              ;;
 
     0.1.3.5) echo "Getting branch fractions and relative phases..."
-             ./../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Table/FindFindBf.sh
-             ./../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Table/FindFindPhase.sh
+             cd ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Table/
+             ./FindFindBf.sh
+             ./FindFindPhase.sh
              ;;
 
     0.1.3.6) echo "Making table..."
-             root -l -q ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Table/MakeTable/MakeTable.cxx
+             cd ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Table/MakeTable/
+             root -l -q MakeTable.cxx
              ;;
 
     # --------------------
@@ -214,32 +236,73 @@ case $option in
              ;;
 
     0.2.1.2) echo "Generating cross sections with different relative pases and branch fraction(0.01 and 0.015)..."
-             ./../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/GenCross.sh
+             cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/
+             ./GenCross.sh
              ;;
 
     0.2.1.3) echo "Generating combinations..."
-             g++ -o ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/GenCombination/combination ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/GenCombination/combination.C
-             ./../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/GenCombination/combination
+             cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/GenCombination/
+             g++ -o combination combination.C
+             ./combination
              ;;
 
     0.2.1.4) echo "Submitting jobs..."
-             cp ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/GenCombination/combination.txt ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Combination/
-             ./../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Combination/ROOTCompile ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Combination/fit_ks_phase
-             bash ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Combination/sub
+             cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Combination/
+             cp ../GenCombination/combination.txt .
+             ./ROOTCompile fit_ks_phase
+             bash sub
              ;;
 
     0.2.1.5) echo "Getting branch fractions and relative phases..."
-             ./../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Table/Find/FindBf.sh
-             ./../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Table/Find/FindPhase.sh
+             cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Table/
+             ./Find/FindBf.sh
+             ./Find/FindPhase.sh
              ;;
 
     0.2.1.6) echo "Making table..."
-             root -l -q ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Table/MakeTable/MakeTable.cxx
+             cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Table/MakeTable/
+             root -l -q MakeTable.cxx
              ;;
 
     0.2.2) echo "Combinations of ten cross sections with different number of relative phase 90"
            ;;
-    
+
+    0.2.2.1) echo echo "Building necessary directories..."
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/TenCrossWithDiffNPhase
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/TenCrossWithDiffNPhase/rootfile
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/TenCrossWithDiffNPhase/logfile
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/TenCrossWithDiffNPhase/cross
+             ;;
+
+    0.2.2.2) echo "Generating cross sections with relative phase 0 and 90..."
+             cd ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/
+             ./GenCross.sh
+             ;;
+
+    0.2.2.3) echo "Generating combinations..."
+             cd ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/GenCombination/
+             g++ -o combination combination.C
+             ./combination
+             ;;
+
+    0.2.2.4) echo "Submitting jobs..."
+             cd ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Combination/
+             cp ../GenCombination/combination.txt .
+             ./ROOTCompile fit_ks_phase
+             bash sub    
+             ;;
+
+    0.2.2.5) echo "Getting branch fractions and relative phases..."
+             cd ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Table/Find/
+             ./FindBf.sh
+             ./FindPhase.sh
+             ;;
+
+    0.2.2.6) echo "Making table..."
+             cd ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Table/MakeTable/
+             root -l -q MakeTable.cxx
+             ;;
+
     0.2.3) "Combinations of fifty cross sections with same branch fractions and random relative pases"
            ;;
 
@@ -251,16 +314,19 @@ case $option in
              ;;
 
     0.2.3.2) echo "Generating cross sections with random branch fractions and random relative pases as well as combinations and fitting...."
-             hep_sub -g physics ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/job
+             cd ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/
+             hep_sub -g physics job
              ;;
 
     0.2.3.3) echo "Getting branch fractions and relative phases..."
-             ./../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/Table/Find/FindBf.sh
-             ./../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/Table/Find/FindPhase.sh
+             cd ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/Table/Find/
+             ./FindBf.sh
+             ./FindPhase.sh
              ;;
 
     0.2.3.4) echo "Making table..."
-             root -l -q ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/Table/MakeTable/MakeTable.cxx
+             cd ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/Table/MakeTable/
+             root -l -q MakeTable.cxx
              ;;
 
     # -----------
@@ -285,16 +351,19 @@ case $option in
              ;;
 
     0.3.1.2) echo "Generating cross sections with random branch fractions and different relative pases as well as combinations and fitting..."
-             hep_sub -g physics ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/job
+             cd ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/
+             hep_sub -g physics job
              ;;
 
     0.3.1.3) echo "Getting branch fractions and relative phases..."
-             ./../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/Find/FindBf.sh
-             ./../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/Find/FindPhase.sh
+             cd ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/Find/
+             ./FindBf.sh
+             ./FindPhase.sh
              ;;
 
     0.3.1.4) echo "Making table..."
-             root -l -q ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/MakeTable.cxx
+             cd ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/
+             root -l -q MakeTable.cxx
              ;;
 
     0.3.2) echo "Combinations of ten cross sections with different number of relative phase 90"
@@ -341,16 +410,19 @@ case $option in
              ;;
 
     0.3.3.2) echo "Generating cross sections with random branch fractions and random relative pases as well as combinations and fitting..."
-             hep_sub -g physics ../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/job
+             cd ../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/
+             hep_sub -g physics job
              ;;
 
     0.3.3.3) echo "Getting branch fractions and relative phases..."
-             ./../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/Table/Find/FindBf.sh
-             ./../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/Table/Find/FindPhase.sh
+             cd ../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/Table/Find/
+             ./FindBf.sh
+             ./FindPhase.sh
              ;;
 
     0.3.3.4) echo "Making table..."
-             root -l -q ../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/Table/MakeTable/MakeTable.cxx
+             cd ../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/Table/MakeTable/
+             root -l -q MakeTable.cxx
              ;;
 
 esac
