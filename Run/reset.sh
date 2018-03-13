@@ -138,6 +138,13 @@ case $option in
            ;;
 
     0.3.2) echo "Cleaning files for combinations of ten cross sections with different number of relative phase 90..."
+           rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase -rf
+           rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/Combination -rf
+           rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/job.* -rf
+           rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/GenCombination/combination -rf
+           rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/GenCombination/combination.txt -rf
+           rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/Find/*txt -rf
+           rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/*txt -rf
            ;;
 
     0.3.3) echo "Cleaning files for combinations of fifty cross sections with random relative phases..."
@@ -240,6 +247,13 @@ case $option in
          rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/*txt -rf
 
          # TenCrossWithDiffNPhase
+         rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase -rf
+         rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/Combination -rf
+         rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/job.* -rf
+         rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/GenCombination/combination -rf
+         rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/GenCombination/combination.txt -rf
+         rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/Find/*txt -rf
+         rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/*txt -rf
 
          # FiftyCrossWithRandPhase
          rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/FiftyCrossWithRandPhase -rf
