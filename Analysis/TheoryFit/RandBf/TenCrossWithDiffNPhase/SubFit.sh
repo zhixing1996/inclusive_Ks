@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for (( i =1;i<101;i= i+1))
+for (( i =1;i<2;i= i+1))
 do
    cd Combination/Combination$i
    cp ../../seed_combination/ ./combination -rf
