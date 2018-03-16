@@ -8,7 +8,7 @@ You can get the source codes from https://github.com/zhixing1996/inclusive_Ks.gi
 
 ## Note
 
-> Please fix hard codes in: Combination/fit_ks_phase.C, seed_combination/fit_ks_phase.C, Table/Find/FindBf.sh, Table/Find/FindPhase.sh, Run/cleanup.sh and Run/submit.sh before running.
+> Please fix hard codes in: Combination/fit_ks_phase.C, seed_combination/fit_ks_phase.C, see_gencross/fit_ks_phase.C, Table/Find/FindBf.sh, Table/Find/FindPhase.sh, Run/cleanup.sh and Run/submit.sh before running.
 
 ## Start
 
@@ -26,43 +26,43 @@ This program contains the following study:
 
 > Combinations of two cross sections with different relative phase(0~90)
 
-- RESULTS PATH:./Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFitResults/SameBf/TwoCrossWithDiffPhase/Table/MakeTable
 
 > Combinations of ten cross sections with different number of relative phase 90
 
-- RESULTS PATH:./Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFitResults/SameBf/TenCrossWithDiffNPhase/Table/MakeTable
 
 > Combinations of fifty cross sections with random relative phases
 
-- RESULTS PATH:./Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/Table/MakeTable
 
 ### Equidifferent branch fraction
 
 > Combinations of two cross sections with different relative phase(0~90)
 
-- RESULTS PATH:./Analysis/TheoryFit/EquidiffereentBf/TwoCrossWithDiffPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFitResults/EquidiffereentBf/TwoCrossWithDiffPhase/Table/MakeTable
 
 > Combinations of ten cross sections with different number of relative phase 90
 
-- RESULTS PATH:./Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/Table/MakeTable
 
 > Combinations of fifty cross sections with random relative phases
 
-- RESULTS PATH:./Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/Table/MakeTable
 
 ### Random branch fraction
 
 > Combinations of two cross sections with different relative phase(0~90)
 
-- RESULTS PATH:./Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/MakeTable
 
 > Combinations of ten cross sections with different number of relative phase 90
 
-- RESULTS PATH:./Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/Table/MakeTable
 
 > Combinations of fifty cross sections with random relative phases (total: 50%, in which domination process occupied 35%)
 
-- RESULTS PATH:./Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/Table/MakeTable
+- RESULTS PATH:./Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/Table/MakeTable
 
 ## For developers 
 
