@@ -126,13 +126,13 @@ case $option in
              ;;
 
     0.1.1.5) echo "Getting branch fractions and relative phases..."
-             cd ./../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Table/Find/
+             cd ../Analysis/TheoryFitResults/SameBf/TwoCrossWithDiffPhase/Table/Find/
              ./FindBf.sh
              ./FindPhase.sh
              ;;
 
     0.1.1.6) echo "Making table..."
-             cd ../Analysis/TheoryFit/SameBf/TwoCrossWithDiffPhase/Table/MakeTable/
+             cd ../Analysis/TheoryFitResults/SameBf/TwoCrossWithDiffPhase/Table/MakeTable/
              root -l -q MakeTable.cxx
              ;;
 
@@ -165,13 +165,13 @@ case $option in
              ;;
 
     0.1.2.5) echo "Getting branch fractions and relative phases..."
-             cd ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Table/Find/
-             ./Find/FindBf.sh
-             ./Find/FindPhase.sh
+             cd ../Analysis/TheoryFitResults/SameBf/TenCrossWithDiffNPhase/Table/Find/
+             ./FindBf.sh
+             ./FindPhase.sh
              ;;
 
     0.1.2.6) echo "Making table..."
-             cd ../Analysis/TheoryFit/SameBf/TenCrossWithDiffNPhase/Table/MakeTable/
+             cd ../Analysis/TheoryFitResults/SameBf/TenCrossWithDiffNPhase/Table/MakeTable/
              root -l -q MakeTable.cxx
              ;;
 
@@ -204,13 +204,13 @@ case $option in
              ;;
 
     0.1.3.5) echo "Getting branch fractions and relative phases..."
-             cd ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Table/
-             ./FindFindBf.sh
-             ./FindFindPhase.sh
+             cd ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/Table/Find/
+             ./FindBf.sh
+             ./FindPhase.sh
              ;;
 
     0.1.3.6) echo "Making table..."
-             cd ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Table/MakeTable/
+             cd ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/Table/MakeTable/
              root -l -q MakeTable.cxx
              ;;
 
@@ -254,13 +254,13 @@ case $option in
              ;;
 
     0.2.1.5) echo "Getting branch fractions and relative phases..."
-             cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Table/
+             cd ../Analysis/TheoryFitResults/EquidifferentBf/TwoCrossWithDiffPhase/Table/
              ./Find/FindBf.sh
              ./Find/FindPhase.sh
              ;;
 
     0.2.1.6) echo "Making table..."
-             cd ../Analysis/TheoryFit/EquidifferentBf/TwoCrossWithDiffPhase/Table/MakeTable/
+             cd ../Analysis/TheoryFitResults/EquidifferentBf/TwoCrossWithDiffPhase/Table/MakeTable/
              root -l -q MakeTable.cxx
              ;;
 
@@ -293,13 +293,13 @@ case $option in
              ;;
 
     0.2.2.5) echo "Getting branch fractions and relative phases..."
-             cd ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Table/Find/
+             cd ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/Table/Find/
              ./FindBf.sh
              ./FindPhase.sh
              ;;
 
     0.2.2.6) echo "Making table..."
-             cd ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Table/MakeTable/
+             cd ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/Table/MakeTable/
              root -l -q MakeTable.cxx
              ;;
 
@@ -319,13 +319,13 @@ case $option in
              ;;
 
     0.2.3.3) echo "Getting branch fractions and relative phases..."
-             cd ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/Table/Find/
+             cd ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/Table/Find/
              ./FindBf.sh
              ./FindPhase.sh
              ;;
 
     0.2.3.4) echo "Making table..."
-             cd ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/Table/MakeTable/
+             cd ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/Table/MakeTable/
              root -l -q MakeTable.cxx
              ;;
 
@@ -356,13 +356,13 @@ case $option in
              ;;
 
     0.3.1.3) echo "Getting branch fractions and relative phases..."
-             cd ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/Find/
+             cd ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/Find/
              ./FindBf.sh
              ./FindPhase.sh
              ;;
 
     0.3.1.4) echo "Making table..."
-             cd ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/
+             cd ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/
              root -l -q MakeTable.cxx
              ;;
 
@@ -392,9 +392,14 @@ case $option in
              ;;
    
     0.3.2.4) echo "Getting branch fractions and relative phases..."
+             cd ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/Table/Find/
+             ./FindBf.sh
+             ./FindPhase.sh
              ;;
   
     0.3.2.5) echo "Making table..."
+             cd ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/Table/MakeTable/
+             root -l -q MakeTable.cxx
              ;;
 
     0.3.3) echo "Combinations of fifty cross sections with random relative pases"
@@ -413,13 +418,13 @@ case $option in
              ;;
 
     0.3.3.3) echo "Getting branch fractions and relative phases..."
-             cd ../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/Table/Find/
+             cd ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/Table/Find/
              ./FindBf.sh
              ./FindPhase.sh
              ;;
 
     0.3.3.4) echo "Making table..."
-             cd ../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/Table/MakeTable/
+             cd ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/Table/MakeTable/
              root -l -q MakeTable.cxx
              ;;
 
