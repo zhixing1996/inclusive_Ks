@@ -241,7 +241,7 @@ int main(int argc, char *argv[])
     orange+=".txt";
     paras.open(orange);
     
-    for (double i=0.01; i<0.0296;i=i+0.0004){
+    for (double i=0.001; i<=0.491;i=i+0.00036){
       stringstream stream;
       stream << i;
       TString grape="../"+stream.str()+"/fit_ks_phase.txt";
