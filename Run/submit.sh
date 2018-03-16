@@ -254,9 +254,9 @@ case $option in
              ;;
 
     0.2.1.5) echo "Getting branch fractions and relative phases..."
-             cd ../Analysis/TheoryFitResults/EquidifferentBf/TwoCrossWithDiffPhase/Table/
-             ./Find/FindBf.sh
-             ./Find/FindPhase.sh
+             cd ../Analysis/TheoryFitResults/EquidifferentBf/TwoCrossWithDiffPhase/Table/Find/
+             ./FindBf.sh
+             ./FindPhase.sh
              ;;
 
     0.2.1.6) echo "Making table..."
