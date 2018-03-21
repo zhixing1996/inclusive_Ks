@@ -36,41 +36,50 @@ mkdir Combination
 cd Combination 
 for (( i =1; i<101; i= i+1))
 do
-    dominantrnd=$(rand 0 90)
-    echo $dominantrnd   
+    # for dominant
+    # dominantrnd=$(rand 0 90)
+    # echo $dominantrnd   
     mkdir Combination$i
     cd Combination$i
     j=0
-    cp ../../EachPhase/$dominantrnd . -rf
-    cd $dominantrnd
-    sed -i s/'seed_Bf/.15'/g fit_ks_phase.C
-    echo "$j ^th cross section is generating..."
-    ./job
-    let "j = $j + 1"
-    cd ../
+    # for dominant
+    # cp ../../EachPhase/$dominantrnd . -rf
+    # cd $dominantrnd
+    # sed -i s/'seed_Bf/.15'/g fit_ks_phase.C
+    # echo "$j ^th cross section is generating..."
+    # ./job
+    # let "j = $j + 1"
+    # cd ../
     BfFile="Bf_combination.txt"
     PhaseFile="Phase_combination.txt"
     touch $BfFile
     touch $PhaseFile
-    echo ".15" > $BfFile
-    echo "$dominantrnd" > $PhaseFile
+    # for dominant
+    # echo ".15" > $BfFile
+    # echo "$dominantrnd" > $PhaseFile
 
     sum=0
-    for (( k =0; k<49; k= k+1))
+    # for dominant
+    # for (( k =0; k<49; k= k+1))
+    for (( k =0; k<50; k= k+1))
     do
         IntRnd[$k]=$(rand 1 100)
         let "sum = ${IntRnd[$k]} + $sum"
     done
 
-    rnd_back=$dominantrnd
-    while [ $j -le 49 ]; 
+    # for dominant
+    # rnd_back=$dominantrnd
+    # while [ $j -le 49 ]; 
+    while [ $j -le 50 ];
     do
         rnd=$(rand 0 90)
-        if [ $rnd != $dominantrnd ]; then
-            if [ $rnd != $rnd_back ]; then
+        # for dominant
+        # if [ $rnd != $dominantrnd ]; then
+            # if [ $rnd != $rnd_back ]; then
                 # Must note: NormRnd= `echo "scale=8; 0.35 * ${IntRnd[$sum]} / $sum " | bc -l` is wrong, "NormRnd=" can't be followed by blankspace
-                let "num = $j - 1"
-                NormRnd=`echo "scale=8; 0.35 * ${IntRnd[$num]} / $sum " | bc -l`
+                # let "num = $j - 1"
+                # NormRnd=`echo "scale=8; 0.35 * ${IntRnd[$num]} / $sum " | bc -l`
+                NormRnd=`echo "scale=8; 0.5 * ${IntRnd[$j]} / $sum " | bc -l`
                 cp ../../EachPhase/$rnd . -rf
                 cd $rnd
                 sed -i s/'seed_Bf/'$NormRnd''/g fit_ks_phase.C
@@ -80,9 +89,10 @@ do
                 cd ../
                 echo "$NormRnd" >> $BfFile
                 echo "$rnd" >> $PhaseFile
-                rnd_back=$rnd
-            fi
-        fi
+                # for dominant
+                # rnd_back=$rnd
+            # fi
+        # fi
     done
     cd ../
 done
