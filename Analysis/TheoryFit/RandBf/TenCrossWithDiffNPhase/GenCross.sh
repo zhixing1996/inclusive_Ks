@@ -24,9 +24,9 @@ do
   mkdir results
   for (( j =0; j<10; j= j+1))
   do
-    let "k = $k - 1"
-    if [ $k -ge 0 ]; then
-      bf=`echo "scale=8; 0.1 * ${IntRnd[$k]} / $sum " | bc -l`
+    # let "k = $k - 1"
+    # if [ $k -ge 0 ]; then
+      bf=`echo "scale=8; 0.1 * ${IntRnd[$j]} / $sum " | bc -l`
       dir="0$bf"
       mkdir $dir
       cd $dir
@@ -48,7 +48,7 @@ do
         cd ../
         mv $phase/fit_ks_phase.txt ../results/"result_"$j"_"$phase".txt"
       done
-    fi
+    # fi
     cd ../
   #  bash sub
   done

@@ -241,16 +241,15 @@ int main(int argc, char *argv[])
     orange+=".txt";
     paras.open(orange);
 
-    ifstream zero("../0/fit_ks_phase.txt");
-    for(int i=0;i<Npoints;i++){
-        zero >> ecm0[i] >> temp_cross;
-        expcs_cor[i]+= temp_cross;
-    }
-
-    ifstream ninety("../90/fit_ks_phase.txt");
-    for(int i=0;i<Npoints;i++){
-        ninety >> ecm0[i] >> temp_cross;
-        expcs_cor[i]+= temp_cross;
+    for (int i=1; i<argc;i++){
+        stringstream stream;
+        stream << argv[i];
+        TString grape="../"+stream.str()+"/fit_ks_phase.txt";
+        ifstream cross(grape);
+        for(int i=0;i<Npoints;i++){
+            cross >> ecm0[i] >> temp_cross;
+            expcs_cor[i]+= temp_cross;
+        }
     }
 
     for (int i=0;i<Npoints;i++ ){

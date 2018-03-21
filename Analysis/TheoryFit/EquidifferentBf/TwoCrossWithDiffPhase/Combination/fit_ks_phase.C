@@ -257,7 +257,7 @@ int main(int argc, char *argv[])
     }
 
     stringstream stream2;
-    stream2 << argv[1];
+    stream2 << argv[2];
     TString ora="../0.015/"+stream2.str()+"/fit_ks_phase.txt";
     ifstream cross2(ora);
     for(int i=0;i<Npoints;i++){

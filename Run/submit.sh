@@ -371,7 +371,7 @@ case $option in
 
     0.3.2.1) echo "Building necessary directories..."
              mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase
-             for (( i =1; i<51; i=i+1))
+             for (( i =1; i<2; i=i+1))
              do 
                  mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase/Combination$i
                  mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase/Combination$i/rootfile
