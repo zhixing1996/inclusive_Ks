@@ -12,7 +12,7 @@ int main(){
 
     ofstream combination("combination.txt");
 
-    for(int i=0; i<=1023;i++){
+    for(int i=0; i<=1024;i++){
         int j = 0;
         for(int k=0;k<10;k++){
             c[k] = 0;
