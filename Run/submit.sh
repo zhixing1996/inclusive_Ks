@@ -37,6 +37,8 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.1.3.4"      "Submit jobs"
     printf "\n\t%-9s  %-40s"  "0.1.3.5"      "Get branch fractions and relative phases"
     printf "\n\t%-9s  %-40s"  "0.1.3.6"      "Make table"
+    printf "\n\t%-9s  %-40s"  "0.1.3.7"      "Get and fit relative difference"
+    printf "\n\t%-9s  %-40s"  "0.1.3.8"      "Get and fit phase"
     printf "\n\t%-9s  %-40s"  "0.2"      "Build necessary directory for equidifferent branch ratio" 
     printf "\n\t%-9s  %-40s"  "0.2.1"      "[Combinations of two cross sections with different relative phase(0~90)]"
     printf "\n\t%-9s  %-40s"  "0.2.1.1"      "Build necessary directories"
@@ -52,28 +54,38 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.2.2.4"      "Submit jobs"
     printf "\n\t%-9s  %-40s"  "0.2.2.5"      "Get branch fractions and relative phases"
     printf "\n\t%-9s  %-40s"  "0.2.2.6"      "Make table"
+    printf "\n\t%-9s  %-40s"  "0.2.2.7"      "Get and fit relative difference"
+    printf "\n\t%-9s  %-40s"  "0.2.2.8"      "Get and fit phase"
     printf "\n\t%-9s  %-40s"  "0.2.3"      "[Combinations of fifty cross sections with equidifferent branch fractions and random relative phases]" 
     printf "\n\t%-9s  %-40s"  "0.2.3.1"      "Build necessary directories"
     printf "\n\t%-9s  %-40s"  "0.2.3.2"      "Generate cross sections with random branch fractions and random relative phases as well as combinations and fit" 
     printf "\n\t%-9s  %-40s"  "0.2.3.3"      "Get branch fractions and relative phases"
     printf "\n\t%-9s  %-40s"  "0.2.3.4"      "Make table"
+    printf "\n\t%-9s  %-40s"  "0.2.3.5"      "Get and fit relative difference"
+    printf "\n\t%-9s  %-40s"  "0.2.3.6"      "Get and fit phase"
     printf "\n\t%-9s  %-40s"  "0.3"      "Build necessary directory for random branch ratio"
     printf "\n\t%-9s  %-40s"  "0.3.1"      "[Combinations of two cross sections with different relative phase(0~90)]"
     printf "\n\t%-9s  %-40s"  "0.3.1.1"      "Build necessary directories"
     printf "\n\t%-9s  %-40s"  "0.3.1.2"      "Generate cross sections with random branch fractions and different relative phases as well as combinations and fit"
     printf "\n\t%-9s  %-40s"  "0.3.1.3"      "Get branch fractions and relative phases"
     printf "\n\t%-9s  %-40s"  "0.3.1.4"      "Make table"
+    printf "\n\t%-9s  %-40s"  "0.3.1.5"      "Get and fit relative difference"
+    printf "\n\t%-9s  %-40s"  "0.3.1.6"      "Get and fit phase"
     printf "\n\t%-9s  %-40s"  "0.3.2"      "[Combinations of ten cross sections with different number of relative phase 90]"
     printf "\n\t%-9s  %-40s"  "0.3.2.1"      "Build necessary directories"
     printf "\n\t%-9s  %-40s"  "0.3.2.2"      "Generate combinations"
     printf "\n\t%-9s  %-40s"  "0.3.2.3"      "Generate cross sections with random branch fractions and different number of relative phases as well as combinations and fit"
     printf "\n\t%-9s  %-40s"  "0.3.2.4"      "Get branch fractions and relative phases"
     printf "\n\t%-9s  %-40s"  "0.3.2.5"      "Make table"
+    printf "\n\t%-9s  %-40s"  "0.3.2.6"      "Get and fit relative difference"
+    printf "\n\t%-9s  %-40s"  "0.3.2.7"      "Get and fit phase"
     printf "\n\t%-9s  %-40s"  "0.3.3"      "[Combinations of fifty cross sections with random branch fractions and random relative phases]" 
     printf "\n\t%-9s  %-40s"  "0.3.3.1"      "Build necessary directories"
     printf "\n\t%-9s  %-40s"  "0.3.3.2"      "Generate cross sections with random branch fractions and random relative phases as well as combinations and fit" 
     printf "\n\t%-9s  %-40s"  "0.3.3.3"      "Get branch fractions and relative phases"
     printf "\n\t%-9s  %-40s"  "0.3.3.4"      "Make table"
+    printf "\n\t%-9s  %-40s"  "0.3.3.5"      "Get and fit relative difference"
+    printf "\n\t%-9s  %-40s"  "0.3.3.6"      "Get and fit phase"
 }
 
 
@@ -214,6 +226,23 @@ case $option in
              root -l -q MakeTable.cxx
              ;;
 
+    0.1.3.7) echo "Getting and fitting relative difference..."
+             cd ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/
+             cd CalRelativeDiff/
+             root -l -q CalRelativeDiff.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit.cxx
+             ;;
+
+    0.1.3.8) echo "Getting and fitting phase..."
+             cd ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/FitPhase/
+             cd GetPhase/
+             root -l -q GetPhase.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit.cxx
+             ;;
+
+
     # --------------------
     #  0.2 EquidifferentBf
     # --------------------
@@ -303,6 +332,38 @@ case $option in
              root -l -q MakeTable.cxx
              ;;
 
+    0.2.2.7) echo "Getting and fitting relative difference..."
+             cd ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/FitBfRelativeDiff/
+             cd CalRelativeDiff/
+             root -l -q CalRelativeDiff.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit1.cxx
+             root -l -q DrawFit2.cxx
+             root -l -q DrawFit3.cxx
+             root -l -q DrawFit4.cxx
+             root -l -q DrawFit5.cxx
+             root -l -q DrawFit6.cxx
+             root -l -q DrawFit7.cxx
+             root -l -q DrawFit8.cxx
+             root -l -q DrawFit9.cxx
+             ;;
+
+    0.2.2.8) echo "Getting and fitting phase..."
+             cd ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/FitPhase/
+             cd GetPhase/
+             root -l -q GetPhase.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit1.cxx
+             root -l -q DrawFit2.cxx
+             root -l -q DrawFit3.cxx
+             root -l -q DrawFit4.cxx
+             root -l -q DrawFit5.cxx
+             root -l -q DrawFit6.cxx
+             root -l -q DrawFit7.cxx
+             root -l -q DrawFit8.cxx
+             root -l -q DrawFit9.cxx
+             ;;
+
     0.2.3) "Combinations of fifty cross sections with same branch fractions and random relative pases"
            ;;
 
@@ -327,6 +388,22 @@ case $option in
     0.2.3.4) echo "Making table..."
              cd ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/Table/MakeTable/
              root -l -q MakeTable.cxx
+             ;;
+
+    0.2.3.5) echo "Getting and fitting relative difference..."
+             cd ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/
+             cd CalRelativeDiff/
+             root -l -q CalRelativeDiff.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit.cxx
+             ;;
+
+    0.2.3.6) echo "Getting and fitting phase..."
+             cd ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/FitPhase/
+             cd GetPhase/
+             root -l -q GetPhase.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit.cxx
              ;;
 
     # -----------
@@ -366,6 +443,22 @@ case $option in
              root -l -q MakeTable.cxx
              ;;
 
+    0.3.1.5) echo "Getting and fitting relative difference..."
+             cd ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/FitBfRelativeDiff/
+             cd CalRelativeDiff/
+             root -l -q CalRelativeDiff.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit.cxx
+             ;;
+
+    0.3.1.6) echo "Getting and fitting phase..."
+             cd ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/FitPhase/
+             cd GetPhase/
+             root -l -q GetPhase.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit.cxx
+             ;;
+
     0.3.2) echo "Combinations of ten cross sections with different number of relative phase 90"
            ;;
 
@@ -402,6 +495,38 @@ case $option in
              root -l -q MakeTable.cxx
              ;;
 
+    0.3.2.6) echo "Getting and fitting relative difference..."
+             cd ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/FitBfRelativeDiff/
+             cd CalRelativeDiff/
+             root -l -q CalRelativeDiff.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit1.cxx
+             root -l -q DrawFit2.cxx
+             root -l -q DrawFit3.cxx
+             root -l -q DrawFit4.cxx
+             root -l -q DrawFit5.cxx
+             root -l -q DrawFit6.cxx
+             root -l -q DrawFit7.cxx
+             root -l -q DrawFit8.cxx
+             root -l -q DrawFit9.cxx
+             ;;
+
+    0.3.2.7) echo "Getting and fitting phase..."
+             cd ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/FitPhase/
+             cd GetPhase/
+             root -l -q GetPhase.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit1.cxx
+             root -l -q DrawFit2.cxx
+             root -l -q DrawFit3.cxx
+             root -l -q DrawFit4.cxx
+             root -l -q DrawFit5.cxx
+             root -l -q DrawFit6.cxx
+             root -l -q DrawFit7.cxx
+             root -l -q DrawFit8.cxx
+             root -l -q DrawFit9.cxx
+             ;;
+
     0.3.3) echo "Combinations of fifty cross sections with random relative pases"
            ;;
 
@@ -426,6 +551,22 @@ case $option in
     0.3.3.4) echo "Making table..."
              cd ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/Table/MakeTable/
              root -l -q MakeTable.cxx
+             ;;
+
+    0.3.3.5) echo "Getting and fitting relative difference..."
+             cd ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/
+             cd CalRelativeDiff/
+             root -l -q CalRelativeDiff.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit.cxx
+             ;;
+
+    0.3.3.6) echo "Getting and fitting phase..."
+             cd ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/FitPhase/
+             cd GetPhase/
+             root -l -q GetPhase.cxx
+             cd ../DrawFit/
+             root -l -q DrawFit.cxx
              ;;
 
 esac

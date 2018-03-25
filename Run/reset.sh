@@ -83,6 +83,10 @@ case $option in
            rm ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Combination/job.* -rf
            rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/Table/Find/*txt -rf
            rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/Table/MakeTable/*txt -rf
+           rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+           rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+           rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/FitPhase/GetPhase/*txt -rf
+           rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/FitPhase/DrawFit/*eps -rf
            ;;
 
     # ------------------------------------
@@ -112,6 +116,10 @@ case $option in
            rm ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Combination/job.* -rf
            rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/Table/Find/*txt -rf
            rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/Table/MakeTable/*txt -rf
+           rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+           rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+           rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/FitPhase/GetPhase/*txt -rf
+           rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/FitPhase/DrawFit/*eps -rf
            ;;
 
     0.2.3) echo "Cleaning files for combinations of fifty cross sections with random relative phases..."
@@ -120,6 +128,10 @@ case $option in
            rm ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/job.* -rf
            rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/Table/Find/*txt -rf
            rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/Table/MakeTable/*txt -rf
+           rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+           rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+           rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/FitPhase/GetPhase/*txt -rf
+           rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/FitPhase/DrawFit/*eps -rf
            ;;
 
     # ---------------------------
@@ -135,6 +147,10 @@ case $option in
            rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/job.* -rf
            rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/Find/*txt -rf
            rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/*txt -rf
+           rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+           rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+           rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/FitPhase/GetPhase/*txt -rf
+           rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/FitPhase/DrawFit/*eps -rf
            ;;
 
     0.3.2) echo "Cleaning files for combinations of ten cross sections with different number of relative phase 90..."
@@ -143,8 +159,12 @@ case $option in
            rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/job.* -rf
            rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/GenCombination/combination -rf
            rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/GenCombination/combination.txt -rf
-           rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/Find/*txt -rf
-           rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/*txt -rf
+           rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/Table/Find/*txt -rf
+           rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/Table/MakeTable/*txt -rf
+           rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+           rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+           rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/FitPhase/GetPhase/*txt -rf
+           rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/FitPhase/DrawFit/*eps -rf
            ;;
 
     0.3.3) echo "Cleaning files for combinations of fifty cross sections with random relative phases..."
@@ -154,6 +174,10 @@ case $option in
            rm ../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/job.* -rf
            rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/Table/Find/*txt -rf
            rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/Table/MakeTable/*txt -rf
+           rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+           rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+           rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/FitPhase/GetPhase/*txt -rf
+           rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/FitPhase/DrawFit/*eps -rf
            ;;
 
     # -------------------------------------------------------------------------------
@@ -211,6 +235,10 @@ case $option in
          rm ../Analysis/TheoryFit/SameBf/FiftyCrossWithRandPhase/Combination/job.* -rf
          rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/Table/Find/*txt -rf
          rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/Table/MakeTable/*txt -rf
+         rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+         rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+         rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/FitPhase/GetPhase/*txt -rf
+         rm ../Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/FitPhase/DrawFit/*eps -rf
 
          # -------------------------------
          # Clean files for EquidifferentBf
@@ -235,6 +263,10 @@ case $option in
          rm ../Analysis/TheoryFit/EquidifferentBf/TenCrossWithDiffNPhase/Combination/job.* -rf
          rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/Table/Find/*txt -rf
          rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/Table/MakeTable/*txt -rf
+         rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+         rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+         rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/FitPhase/GetPhase/*txt -rf
+         rm ../Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/FitPhase/DrawFit/*eps -rf
 
          # FiftyCrossWithRandPhase
          rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/FiftyCrossWithRandPhase -rf
@@ -242,6 +274,10 @@ case $option in
          rm ../Analysis/TheoryFit/EquidifferentBf/FiftyCrossWithRandPhase/job.* -rf
          rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/Table/Find/*txt -rf
          rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/Table/MakeTable/*txt -rf
+         rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+         rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+         rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/FitPhase/GetPhase/*txt -rf
+         rm ../Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/FitPhase/DrawFit/*eps -rf
 
          # ----------------------
          # Clean files for RandBf
@@ -253,6 +289,10 @@ case $option in
          rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/job.* -rf
          rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/Find/*txt -rf
          rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/*txt -rf
+         rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+         rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+         rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/FitPhase/GetPhase/*txt -rf
+         rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/FitPhase/DrawFit/*eps -rf
 
          # TenCrossWithDiffNPhase
          rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TenCrossWithDiffNPhase -rf
@@ -260,8 +300,12 @@ case $option in
          rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/job.* -rf
          rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/GenCombination/combination -rf
          rm ../Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/GenCombination/combination.txt -rf
-         rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/Find/*txt -rf
-         rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/*txt -rf
+         rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/Table/Find/*txt -rf
+         rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/Table/MakeTable/*txt -rf
+         rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+         rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+         rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/FitPhase/GetPhase/*txt -rf
+         rm ../Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/FitPhase/DrawFit/*eps -rf
 
          # FiftyCrossWithRandPhase
          rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/FiftyCrossWithRandPhase -rf
@@ -270,6 +314,10 @@ case $option in
          rm ../Analysis/TheoryFit/RandBf/FiftyCrossWithRandPhase/job.* -rf
          rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/Table/Find/*txt -rf
          rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/Table/MakeTable/*txt -rf
+         rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/CalRelativeDiff/*txt -rf
+         rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/FitBfRelativeDiff/DrawFit/*eps -rf
+         rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/FitPhase/GetPhase/*txt -rf
+         rm ../Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/FitPhase/DrawFit/*eps -rf
 
          # --------------------------------------------------------------------------
          # End of cleaning (clean directory /besfs/groups/tauqcd/jingmq/inclusive_Ks)

@@ -6,7 +6,7 @@
 
 void MakeTable(){
 
-     const int tot = 1023;
+     const int tot = 1024;
 
      // load files
      ofstream table;
@@ -45,13 +45,13 @@ void MakeTable(){
      }
 
      // output
-     table<<"Specific combination can be seen in: /besfs/users/jingmq/workarea665p01/Analysis/Ks/inclusive_Ks/Analysis/TheoryFit/RandBf/TenCrossWithDiffNPhase/Combination"<<endl;
+     table<<"Specific combination can be seen in: ../../../../../TheoryFit/RandBf/TenCrossWithDiffNPhase/Combination"<<endl;
      table<<"Number"<<"\t"<<"Branch Ratio"<<"\t"<<"Output Phase"<<"\t"<<"Output Branch Ratio"<<"\t"<<"Relative Difference(%)"<<endl;
      for (Int_t i=0;i<11;i++){
          table<<"Number of relative phase 90 degree equals "<<i<<endl;
          for (Int_t j=0;j<tot;j++){
                if (Count[j]==i)
-                  table<<j+1<<"\t"<<"0.1"<<"\t"<<phase[j]<<"+/-"<<phaseerr[j]<<"\t"<<bf[j]<<"+/-"<<bferr[j]<<"\t"<<(bf[j]-0.1)/0.1*100<<endl;
+                  table<<j<<"\t"<<"0.1"<<"\t"<<phase[j]<<"+/-"<<phaseerr[j]<<"\t"<<bf[j]<<"+/-"<<bferr[j]<<"\t"<<(bf[j]-0.1)/0.1*100<<endl;
          }
      }
 
