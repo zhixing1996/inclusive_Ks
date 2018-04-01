@@ -143,7 +143,7 @@ case $option in
 
     0.3.1) echo "Cleaning files for combinations of two cross sections with different relative phase(0~90)..."
            rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase -rf
-           rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Combination -rf
+           rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Combination* -rf
            rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/job.* -rf
            rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/Find/*txt -rf
            rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/*txt -rf
@@ -285,7 +285,7 @@ case $option in
 
          # TwoCrossWithDiffPhase
          rm /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase -rf
-         rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Combination -rf
+         rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/Combination* -rf
          rm ../Analysis/TheoryFit/RandBf/TwoCrossWithDiffPhase/job.* -rf
          rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/Find/*txt -rf
          rm ../Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/MakeTable/*txt -rf

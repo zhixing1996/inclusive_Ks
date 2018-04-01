@@ -368,7 +368,7 @@ case $option in
            ;;
 
     0.2.3.1) echo "Building necessary directories..."
-             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/FiftyCrossWithRandPhase 
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/FiftyCrossWithRandPhase
              mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/FiftyCrossWithRandPhase/rootfile
              mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/FiftyCrossWithRandPhase/logfile
              mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/EquidifferentBf/FiftyCrossWithRandPhase/cross
@@ -422,9 +422,18 @@ case $option in
 
     0.3.1.1) echo "Building necessary directories..."
              mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase 
-             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/rootfile
-             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/logfile
-             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/cross
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_0_0
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_0_0/rootfile
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_0_0/logfile
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_0_0/cross
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_0_90
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_0_90/rootfile
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_0_90/logfile
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_0_90/cross
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_90_90
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_90_90/rootfile
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_90_90/logfile
+             mkdir /besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_90_90/cross
              ;;
 
     0.3.1.2) echo "Generating cross sections with random branch fractions and different relative pases as well as combinations and fitting..."
@@ -448,7 +457,9 @@ case $option in
              cd CalRelativeDiff/
              root -l -q CalRelativeDiff.cxx
              cd ../DrawFit/
-             root -l -q DrawFit.cxx
+             root -l -q DrawFit_0_0.cxx
+             root -l -q DrawFit_0_90.cxx
+             root -l -q DrawFit_90_90.cxx
              ;;
 
     0.3.1.6) echo "Getting and fitting phase..."
@@ -456,7 +467,9 @@ case $option in
              cd GetPhase/
              root -l -q GetPhase.cxx
              cd ../DrawFit/
-             root -l -q DrawFit.cxx
+             root -l -q DrawFit_0_0.cxx
+             root -l -q DrawFit_0_90.cxx
+             root -l -q DrawFit_90_90.cxx
              ;;
 
     0.3.2) echo "Combinations of ten cross sections with different number of relative phase 90"

@@ -53,7 +53,7 @@ void DrawFit()
 
 	RooArgSet mchic_etapipi;
 	mchic_etapipi.add(RooArgSet(RelativeDiff));
-	RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff.txt",mchic_etapipi,"Q");
+	RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff_0_90.txt",mchic_etapipi,"Q");
 	//cout<<__LINE__<<endl;
         RooRealVar mean("mean", "mean", 0.3, 0.,0.6);
 	RooRealVar sigma("sigma", "sigma", 0.1, 0, 10);
@@ -84,5 +84,5 @@ void DrawFit()
         cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
 
 	xframe->Draw();
-	c1->Print("RelativeDiff.eps");
+	c1->Print("RelativeDiff_0_90.eps");
 }

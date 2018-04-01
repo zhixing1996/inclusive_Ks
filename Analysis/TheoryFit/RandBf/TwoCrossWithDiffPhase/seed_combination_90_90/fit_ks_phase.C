@@ -225,7 +225,7 @@ int main(int argc, char *argv[])
          expcs_cor[i]=0;
    }
 
-    TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/rootfile/fit_ks_phase_combination";
+    TString apple="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_90_90/rootfile/fit_ks_phase_combination";
     for (int i=1; i<argc;i++){
       apple+="_";
       apple+=argv[i];
@@ -233,7 +233,7 @@ int main(int argc, char *argv[])
     apple+=".root";
 
     ofstream paras;
-    TString orange="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/logfile/fit_ks_phase_combination";
+    TString orange="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_90_90/logfile/fit_ks_phase_combination";
     for (int i=1; i<argc;i++){
       orange+="_";
       orange+=argv[i];
@@ -279,7 +279,7 @@ int main(int argc, char *argv[])
     ecm0err[14]=0.093E-3;
     ecm0err[15]=0.115E-3;
 
-    TString banana="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/cross/fit_ks_phase_combination";
+    TString banana="/besfs/groups/tauqcd/jingmq/inclusive_Ks/RandBf/TwoCrossWithDiffPhase/Combination_90_90/cross/fit_ks_phase_combination";
     for (int i=1; i<argc;i++){
       banana+="_";
       banana+=argv[i];

@@ -49,23 +49,23 @@ void DrawFit()
 	pad->Draw();
 
 
-        RooRealVar Phase("Phase","",10,90);
+        RooRealVar RelativeDiff("RelativeDiff","",0.0,0.1);
 
 	RooArgSet mchic_etapipi;
-	mchic_etapipi.add(RooArgSet(Phase));
-	RooDataSet *Distribution= RooDataSet::read("../GetPhase/Phase.txt",mchic_etapipi,"Q");
+	mchic_etapipi.add(RooArgSet(RelativeDiff));
+	RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff_0_0.txt",mchic_etapipi,"Q");
 	//cout<<__LINE__<<endl;
-        RooRealVar mean("mean", "mean", 45, 10,90);
-	RooRealVar sigma("sigma", "sigma", 3, 0, 50);
-        RooGaussian gauss("gauss", "gauss", Phase, mean, sigma);
+        RooRealVar mean("mean", "mean", 0.3, 0.,0.6);
+	RooRealVar sigma("sigma", "sigma", 0.1, 0, 10);
+        RooGaussian gauss("gauss", "gauss", RelativeDiff, mean, sigma);
 
 	RooRealVar nsig("nsig","#sig events", 100., 0., 300.);
 
 	RooAddPdf model("model", "g", RooArgList(gauss), RooArgList(nsig));
-	RooPlot* xframe = Phase.frame(Title("Relative Phase(degree)")) ; 
+	RooPlot* xframe = RelativeDiff.frame(Title("Relative Difference(%)")) ; 
 	model.fitTo(*Distribution, Minos(kTRUE),Extended(),Strategy(2));
 
-	xframe->GetXaxis()->SetTitle("Relative Phase(degree)");
+	xframe->GetXaxis()->SetTitle("Relative Different(%)");
         xframe->GetYaxis()->SetTitle("Times");
 	xframe->GetXaxis()->CenterTitle(1);
 	xframe->GetXaxis()->SetDecimals(1);
@@ -84,5 +84,5 @@ void DrawFit()
         cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
 
 	xframe->Draw();
-	c1->Print("PhaseFit.eps");
+	c1->Print("RelativeDiff_0_0.eps");
 }
