@@ -80,11 +80,11 @@ void DrawFit8(){
     // f->SetLineWidth(1);
     // openfile.close();
 
-    RooRealVar BfDiff("RelativeDiff","",-3,7);
+    RooRealVar BfDiff("RelativeDiff","",0,7);
     RooArgSet mchic_etapipi;
     mchic_etapipi.add(RooArgSet(BfDiff));
     RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff8.txt",mchic_etapipi,"Q");
-    RooRealVar mean("mean", "mean", 3, -3,7);
+    RooRealVar mean("mean", "mean", 3, 0,7);
     RooRealVar sigma("sigma", "sigma", 3, 0, 10);
     RooGaussian gauss("gauss", "gauss", BfDiff, mean, sigma);
 

@@ -74,9 +74,9 @@ void DrawFit1(){
     graph->GetYaxis()->CenterTitle();
     
     graph->Draw("a*");
-    graph->Fit("pol0");
+    graph->Fit("pol1");
     
-    TF1 *f = graph->GetFunction("pol0");
+    TF1 *f = graph->GetFunction("pol1");
     f->SetLineWidth(1);
     openfile.close();
     c->Print("RelativeDiffFit1.eps");

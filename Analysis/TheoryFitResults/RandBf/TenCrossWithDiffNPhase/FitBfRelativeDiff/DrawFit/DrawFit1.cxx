@@ -65,7 +65,7 @@ void DrawFit1(){
     
     
     TGraphErrors *graph = new TGraphErrors(n1, bfxval1, bfval1, bfxerr1, bferr1);
-    graph->GetYaxis()->SetRangeUser(-3,0);
+    graph->GetYaxis()->SetRangeUser(0,3);
     graph->GetXaxis()->SetRangeUser(0,13);
     graph->GetXaxis()->SetTitle("Number");
     graph->GetYaxis()->SetTitle("Branch Fraction Relative Difference(%)");

@@ -49,12 +49,12 @@ void DrawFit4(){
     pad->SetFrameLineWidth(4.5);
     pad->Draw();
     
-    RooRealVar BfDiff("RelativeDiff","",-6,0);
+    RooRealVar BfDiff("RelativeDiff","",1,6);
     RooArgSet mchic_etapipi;
     mchic_etapipi.add(RooArgSet(BfDiff));
     RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff4.txt",mchic_etapipi,"Q");
-    RooRealVar mean("mean", "mean", -3, -6,0);
-    RooRealVar sigma("sigma", "sigma", 3, 0, 10);
+    RooRealVar mean("mean", "mean", 3, 1,6);
+    RooRealVar sigma("sigma", "sigma", 0.1, 0, 10);
     RooGaussian gauss("gauss", "gauss", BfDiff, mean, sigma);
 
     RooRealVar nsig("nsig","#sig events", 100., 0., 300.);

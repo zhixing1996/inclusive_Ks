@@ -118,6 +118,6 @@ void DrawFit7(){
     cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
 
     xframe->Draw();
-    c->Print("Phase7.eps");
+    c->Print("PhaseFit7.eps");
             
 }

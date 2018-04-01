@@ -81,11 +81,11 @@ void DrawFit7(){
     // openfile.close();
 
 
-    RooRealVar BfDiff("RelativeDiff","",-6,6);
+    RooRealVar BfDiff("RelativeDiff","",0,6);
     RooArgSet mchic_etapipi;
     mchic_etapipi.add(RooArgSet(BfDiff));
     RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff7.txt",mchic_etapipi,"Q");
-    RooRealVar mean("mean", "mean", 0, -6,6);
+    RooRealVar mean("mean", "mean", 3, 0,6);
     RooRealVar sigma("sigma", "sigma", 3, 0, 10);
     RooGaussian gauss("gauss", "gauss", BfDiff, mean, sigma);
     // RooRealVar t("t","t",-40,40) ;
@@ -118,6 +118,6 @@ void DrawFit7(){
     cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
 
     xframe->Draw();
-    c->Print("RelativeDiff7.eps");
+    c->Print("RelativeDiffFit7.eps");
             
 }

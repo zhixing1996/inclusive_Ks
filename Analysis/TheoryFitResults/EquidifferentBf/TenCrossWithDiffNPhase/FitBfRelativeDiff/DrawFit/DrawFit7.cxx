@@ -49,75 +49,75 @@ void DrawFit7(){
     pad->SetFrameLineWidth(4.5);
     pad->Draw();
                                                                  
-    const int n7 =120;
-    Double_t bfxval7[n7], bfxerr7[n7], bfval7[n7], bferr7[n7];
-    ifstream openfile;
-    openfile.open("../CalRelativeDiff/RelativeDiff7.txt");
-    for ( Int_t m = 0; m<n7; m++){
-        bfxval7[m] = m; 
-        bfxerr7[m] = 0.000001;
-    }   
-    
-    for (Int_t m = 0; m<n7; m++) {
-        openfile>>bfval7[m];
-        bferr7[m] = 0.000001;
-    }   
-    
-    
-    TGraphErrors *graph = new TGraphErrors(n7, bfxval7, bfval7, bfxerr7, bferr7);
-    graph->GetYaxis()->SetRangeUser(2,15);
-    graph->GetXaxis()->SetRangeUser(0,120);
-    graph->GetXaxis()->SetTitle("Number");
-    graph->GetYaxis()->SetTitle("Branch Fraction Relative Difference(%)");
-    graph->SetLineColor(2);
-    graph->GetXaxis()->CenterTitle();
-    graph->GetYaxis()->CenterTitle();
-    
-    graph->Draw("a*");
-    graph->Fit("pol2");
-    
-    TF1 *f = graph->GetFunction("pol2");
-    f->SetLineWidth(1);
-    openfile.close();
+    // const int n7 =120;
+    // Double_t bfxval7[n7], bfxerr7[n7], bfval7[n7], bferr7[n7];
+    // ifstream openfile;
+    // openfile.open("../CalRelativeDiff/RelativeDiff7.txt");
+    // for ( Int_t m = 0; m<n7; m++){
+    //     bfxval7[m] = m; 
+    //     bfxerr7[m] = 0.000001;
+    // }   
+    // 
+    // for (Int_t m = 0; m<n7; m++) {
+    //     openfile>>bfval7[m];
+    //     bferr7[m] = 0.000001;
+    // }   
+    // 
+    // 
+    // TGraphErrors *graph = new TGraphErrors(n7, bfxval7, bfval7, bfxerr7, bferr7);
+    // graph->GetYaxis()->SetRangeUser(2,15);
+    // graph->GetXaxis()->SetRangeUser(0,120);
+    // graph->GetXaxis()->SetTitle("Number");
+    // graph->GetYaxis()->SetTitle("Branch Fraction Relative Difference(%)");
+    // graph->SetLineColor(2);
+    // graph->GetXaxis()->CenterTitle();
+    // graph->GetYaxis()->CenterTitle();
+    // 
+    // graph->Draw("a*");
+    // graph->Fit("pol2");
+    // 
+    // TF1 *f = graph->GetFunction("pol2");
+    // f->SetLineWidth(1);
+    // openfile.close();
 
 
-    // RooRealVar BfDiff("RelativeDiff","",-40,40);
-    // RooArgSet mchic_etapipi;
-    // mchic_etapipi.add(RooArgSet(BfDiff));
-    // RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff7.txt",mchic_etapipi,"Q");
-    // //RooRealVar mean("mean", "mean", 8, 5,12);
-    // //RooRealVar sigma("sigma", "sigma", 3, 0, 10);
-    // //RooGaussian gauss("gauss", "gauss", BfDiff, mean, sigma);
+    RooRealVar BfDiff("RelativeDiff","",5,12);
+    RooArgSet mchic_etapipi;
+    mchic_etapipi.add(RooArgSet(BfDiff));
+    RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff7.txt",mchic_etapipi,"Q");
+    RooRealVar mean("mean", "mean", 8, 0,12);
+    RooRealVar sigma("sigma", "sigma", 3, 0, 10);
+    RooGaussian gauss("gauss", "gauss", BfDiff, mean, sigma);
     // RooRealVar t("t","t",-40,40) ;
     // RooRealVar mean("mean","mean landau",8.,5,15) ;
-    // RooRealVar sigma("sigma","sigma landau",4,-100,100) ;
+    // RooRealVar sigma("sigma","sigma landau",0.1,-100,100) ;
     // RooLandau landau("lx","lx",t,mean,sigma) ;
 
-    // RooRealVar nsig("nsig","#sig events", 100., 0., 300.);
+    RooRealVar nsig("nsig","#sig events", 100., 0., 300.);
 
-    // RooAddPdf model("model", "g", RooArgList(landau), RooArgList(nsig));
-    // RooPlot* xframe = BfDiff.frame(Title("Relative Difference(%)")) ;
-    // model.fitTo(*Distribution, Minos(kTRUE),Extended(),Strategy(2));
+    RooAddPdf model("model", "g", RooArgList(gauss), RooArgList(nsig));
+    RooPlot* xframe = BfDiff.frame(Title("Relative Difference(%)")) ;
+    model.fitTo(*Distribution, Minos(kTRUE),Extended(),Strategy(2));
 
-    // xframe->GetXaxis()->SetTitle("Relative Different(%)");
-    // xframe->GetYaxis()->SetTitle("Times");
-    // xframe->GetXaxis()->CenterTitle(1);
-    // xframe->GetXaxis()->SetDecimals(1);
-    // xframe->GetXaxis()->SetTitleSize(0.05);
-    // xframe->SetTitleOffset(1.25,"X");
-    // xframe->GetYaxis()->CenterTitle(1);
-    // xframe->GetYaxis()->SetLabelSize(0.06);
-    // xframe->GetYaxis()->SetTitleSize(0.07);
-    // xframe->SetTitleOffset(0.85,"Y");
+    xframe->GetXaxis()->SetTitle("Relative Different(%)");
+    xframe->GetYaxis()->SetTitle("Times");
+    xframe->GetXaxis()->CenterTitle(1);
+    xframe->GetXaxis()->SetDecimals(1);
+    xframe->GetXaxis()->SetTitleSize(0.05);
+    xframe->SetTitleOffset(1.25,"X");
+    xframe->GetYaxis()->CenterTitle(1);
+    xframe->GetYaxis()->SetLabelSize(0.06);
+    xframe->GetYaxis()->SetTitleSize(0.07);
+    xframe->SetTitleOffset(0.85,"Y");
 
-    // Distribution->plotOn(xframe,Binning(100),MarkerColor(kBlack),LineWidth(1));
-    // model.plotOn(xframe, Components("landau"), LineStyle(2),LineColor(kBlack));
-    // model.paramOn(xframe, Layout(0.55, 0.9, 0.9), Format("NEU", AutoPrecision(2)));
-    // model.plotOn(xframe);
-    // cout<<"mean= "<<mean.getVal()<<" +- "<<mean.getError()<<endl;
-    // cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
+    Distribution->plotOn(xframe,Binning(100),MarkerColor(kBlack),LineWidth(1));
+    model.plotOn(xframe, Components("gauss"), LineStyle(2),LineColor(kBlack));
+    model.paramOn(xframe, Layout(0.55, 0.9, 0.9), Format("NEU", AutoPrecision(2)));
+    model.plotOn(xframe);
+    cout<<"mean= "<<mean.getVal()<<" +- "<<mean.getError()<<endl;
+    cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
 
-    // xframe->Draw();
-    c->Print("RelativeDiff7.eps");
+    xframe->Draw();
+    c->Print("RelativeDiffFit7.eps");
             
 }

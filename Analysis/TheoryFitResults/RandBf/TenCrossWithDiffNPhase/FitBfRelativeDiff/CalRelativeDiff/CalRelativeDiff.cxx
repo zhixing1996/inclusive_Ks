@@ -43,7 +43,7 @@ void CalRelativeDiff(){
         ofstream Temp(orange);
         for (Int_t j=0;j<tot;j++){
               if (Count[j]==i )
-                 Temp<<(bf[j]-0.1)/0.1*100<<endl;
+                 Temp<<fabs((bf[j]-0.1)/0.1*100)<<endl;
         }
     }
 

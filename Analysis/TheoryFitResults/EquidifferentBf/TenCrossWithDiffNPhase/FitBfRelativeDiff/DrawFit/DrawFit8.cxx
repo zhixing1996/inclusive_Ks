@@ -49,70 +49,70 @@ void DrawFit8(){
     pad->SetFrameLineWidth(4.5);
     pad->Draw();
                                                                               
-    const int n8 =45;
-    Double_t bfxval8[n8], bfxerr8[n8], bfval8[n8], bferr8[n8];
-    ifstream openfile;
-    openfile.open("../CalRelativeDiff/RelativeDiff8.txt");
-    for ( Int_t m = 0; m<n8; m++){
-        bfxval8[m] = m; 
-        bfxerr8[m] = 0.000001;
-    }   
-    
-    for (Int_t m = 0; m<n8; m++) {
-        openfile>>bfval8[m];
-        bferr8[m] = 0.000001;
-    }   
-    
-    
-    TGraphErrors *graph = new TGraphErrors(n8, bfxval8, bfval8, bfxerr8, bferr8);
-    graph->GetYaxis()->SetRangeUser(2,15);
-    graph->GetXaxis()->SetRangeUser(0,45);
-    graph->GetXaxis()->SetTitle("Number");
-    graph->GetYaxis()->SetTitle("Branch Fraction Relative Difference(%)");
-    graph->SetLineColor(2);
-    graph->GetXaxis()->CenterTitle();
-    graph->GetYaxis()->CenterTitle();
-    
-    graph->Draw("a*");
-    graph->Fit("pol0");
-    
-    TF1 *f = graph->GetFunction("pol0");
-    f->SetLineWidth(1);
-    openfile.close();
+    // const int n8 =45;
+    // Double_t bfxval8[n8], bfxerr8[n8], bfval8[n8], bferr8[n8];
+    // ifstream openfile;
+    // openfile.open("../CalRelativeDiff/RelativeDiff8.txt");
+    // for ( Int_t m = 0; m<n8; m++){
+    //     bfxval8[m] = m; 
+    //     bfxerr8[m] = 0.000001;
+    // }   
+    // 
+    // for (Int_t m = 0; m<n8; m++) {
+    //     openfile>>bfval8[m];
+    //     bferr8[m] = 0.000001;
+    // }   
+    // 
+    // 
+    // TGraphErrors *graph = new TGraphErrors(n8, bfxval8, bfval8, bfxerr8, bferr8);
+    // graph->GetYaxis()->SetRangeUser(2,15);
+    // graph->GetXaxis()->SetRangeUser(0,45);
+    // graph->GetXaxis()->SetTitle("Number");
+    // graph->GetYaxis()->SetTitle("Branch Fraction Relative Difference(%)");
+    // graph->SetLineColor(2);
+    // graph->GetXaxis()->CenterTitle();
+    // graph->GetYaxis()->CenterTitle();
+    // 
+    // graph->Draw("a*");
+    // graph->Fit("pol0");
+    // 
+    // TF1 *f = graph->GetFunction("pol0");
+    // f->SetLineWidth(1);
+    // openfile.close();
 
-    // RooRealVar BfDiff("RelativeDiff","",2,15);
-    // RooArgSet mchic_etapipi;
-    // mchic_etapipi.add(RooArgSet(BfDiff));
-    // RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff8.txt",mchic_etapipi,"Q");
-    // RooRealVar mean("mean", "mean", 11, 2,15);
-    // RooRealVar sigma("sigma", "sigma", 3, 0, 10);
-    // RooGaussian gauss("gauss", "gauss", BfDiff, mean, sigma);
+    RooRealVar BfDiff("RelativeDiff","",2,15);
+    RooArgSet mchic_etapipi;
+    mchic_etapipi.add(RooArgSet(BfDiff));
+    RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff8.txt",mchic_etapipi,"Q");
+    RooRealVar mean("mean", "mean", 11, 2,15);
+    RooRealVar sigma("sigma", "sigma", 3, 0, 10);
+    RooGaussian gauss("gauss", "gauss", BfDiff, mean, sigma);
 
-    // RooRealVar nsig("nsig","#sig events", 100., 0., 300.);
+    RooRealVar nsig("nsig","#sig events", 100., 0., 300.);
 
-    // RooAddPdf model("model", "g", RooArgList(gauss), RooArgList(nsig));
-    // RooPlot* xframe = BfDiff.frame(Title("Relative Difference(%)")) ;
-    // model.fitTo(*Distribution, Minos(kTRUE),Extended(),Strategy(2));
+    RooAddPdf model("model", "g", RooArgList(gauss), RooArgList(nsig));
+    RooPlot* xframe = BfDiff.frame(Title("Relative Difference(%)")) ;
+    model.fitTo(*Distribution, Minos(kTRUE),Extended(),Strategy(2));
 
-    // xframe->GetXaxis()->SetTitle("Relative Different(%)");
-    // xframe->GetYaxis()->SetTitle("Times");
-    // xframe->GetXaxis()->CenterTitle(1);
-    // xframe->GetXaxis()->SetDecimals(1);
-    // xframe->GetXaxis()->SetTitleSize(0.05);
-    // xframe->SetTitleOffset(1.25,"X");
-    // xframe->GetYaxis()->CenterTitle(1);
-    // xframe->GetYaxis()->SetLabelSize(0.06);
-    // xframe->GetYaxis()->SetTitleSize(0.07);
-    // xframe->SetTitleOffset(0.85,"Y");
+    xframe->GetXaxis()->SetTitle("Relative Different(%)");
+    xframe->GetYaxis()->SetTitle("Times");
+    xframe->GetXaxis()->CenterTitle(1);
+    xframe->GetXaxis()->SetDecimals(1);
+    xframe->GetXaxis()->SetTitleSize(0.05);
+    xframe->SetTitleOffset(1.25,"X");
+    xframe->GetYaxis()->CenterTitle(1);
+    xframe->GetYaxis()->SetLabelSize(0.06);
+    xframe->GetYaxis()->SetTitleSize(0.07);
+    xframe->SetTitleOffset(0.85,"Y");
 
-    // Distribution->plotOn(xframe,Binning(100),MarkerColor(kBlack),LineWidth(1));
-    // model.plotOn(xframe, Components("gauss"), LineStyle(2),LineColor(kBlack));
-    // model.paramOn(xframe, Layout(0.55, 0.9, 0.9), Format("NEU", AutoPrecision(2)));
-    // model.plotOn(xframe);
-    // cout<<"mean= "<<mean.getVal()<<" +- "<<mean.getError()<<endl;
-    // cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
+    Distribution->plotOn(xframe,Binning(100),MarkerColor(kBlack),LineWidth(1));
+    model.plotOn(xframe, Components("gauss"), LineStyle(2),LineColor(kBlack));
+    model.paramOn(xframe, Layout(0.55, 0.9, 0.9), Format("NEU", AutoPrecision(2)));
+    model.plotOn(xframe);
+    cout<<"mean= "<<mean.getVal()<<" +- "<<mean.getError()<<endl;
+    cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
 
-    // xframe->Draw();
+    xframe->Draw();
     c->Print("RelativeDiffFit8.eps");
 
 }
