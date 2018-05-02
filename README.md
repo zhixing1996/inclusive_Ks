@@ -24,11 +24,11 @@ This program contains the following study:
 
 ### Same branch fraction
 
-> Combinations of two cross sections with different relative phase(0~90)
+> Combinations of two cross sections with different relative phase(0,90)
 
 - RESULTS PATH:./Analysis/TheoryFitResults/SameBf/TwoCrossWithDiffPhase/Table/MakeTable
 
-> Combinations of ten cross sections with different number of relative phase 90
+> Combinations of ten cross sections with random relative phase
 
 - RESULTS PATH:./Analysis/TheoryFitResults/SameBf/TenCrossWithDiffNPhase/Table/MakeTable
 
@@ -36,31 +36,17 @@ This program contains the following study:
 
 - RESULTS PATH:./Analysis/TheoryFitResults/SameBf/FiftyCrossWithRandPhase/Table/MakeTable
 
-### Equidifferent branch fraction
-
-> Combinations of two cross sections with different relative phase(0~90)
-
-- RESULTS PATH:./Analysis/TheoryFitResults/EquidiffereentBf/TwoCrossWithDiffPhase/Table/MakeTable
-
-> Combinations of ten cross sections with different number of relative phase 90
-
-- RESULTS PATH:./Analysis/TheoryFitResults/EquidifferentBf/TenCrossWithDiffNPhase/Table/MakeTable
-
-> Combinations of fifty cross sections with random relative phases
-
-- RESULTS PATH:./Analysis/TheoryFitResults/EquidifferentBf/FiftyCrossWithRandPhase/Table/MakeTable
-
 ### Random branch fraction
 
-> Combinations of two cross sections with different relative phase(0~90)
+> Combinations of two cross sections with different relative phase(0,90)
 
 - RESULTS PATH:./Analysis/TheoryFitResults/RandBf/TwoCrossWithDiffPhase/Table/MakeTable
 
-> Combinations of ten cross sections with different number of relative phase 90
+> Combinations of ten cross sections with random relative phase
 
 - RESULTS PATH:./Analysis/TheoryFitResults/RandBf/TenCrossWithDiffNPhase/Table/MakeTable
 
-> Combinations of fifty cross sections with random relative phases (total: 50%, in which domination process occupied 35%)
+> Combinations of fifty cross sections with random relative phases
 
 - RESULTS PATH:./Analysis/TheoryFitResults/RandBf/FiftyCrossWithRandPhase/Table/MakeTable
 
