@@ -1,4 +1,4 @@
-void DrawFit()
+void DrawFit_0_90()
 {
 	gSystem->Load("libRooFit");
 	using namespace RooFit;
@@ -40,6 +40,7 @@ void DrawFit()
 	TCanvas *c1 = new TCanvas("c1","c1",1000,700);
 
 	c1->cd();
+	// c1->SetGrid();
 	c1->cd()->SetBottomMargin(0.15);;
 
 	TPad *pad = new TPad("pad","",0.0,0.0,1.0,1.0);
@@ -49,40 +50,48 @@ void DrawFit()
 	pad->Draw();
 
 
-        RooRealVar RelativeDiff("RelativeDiff","",0.0,0.1);
+        RooRealVar RelativeDiff("RelativeDiff","",0.0001,0.0007);
 
 	RooArgSet mchic_etapipi;
 	mchic_etapipi.add(RooArgSet(RelativeDiff));
 	RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff_0_90.txt",mchic_etapipi,"Q");
 	//cout<<__LINE__<<endl;
-        RooRealVar mean("mean", "mean", 0.3, 0.,0.6);
-	RooRealVar sigma("sigma", "sigma", 0.1, 0, 10);
+        RooRealVar mean("mean", "mean", 0.0003, 0.,0.0007);
+	RooRealVar sigma("sigma", "sigma", 0.00001, 0, 10);
         RooGaussian gauss("gauss", "gauss", RelativeDiff, mean, sigma);
 
 	RooRealVar nsig("nsig","#sig events", 100., 0., 300.);
 
 	RooAddPdf model("model", "g", RooArgList(gauss), RooArgList(nsig));
-	RooPlot* xframe = RelativeDiff.frame(Title("Relative Difference(%)")) ; 
+	RooPlot* xframe = RelativeDiff.frame(Title("Difference")) ; 
 	model.fitTo(*Distribution, Minos(kTRUE),Extended(),Strategy(2));
 
-	xframe->GetXaxis()->SetTitle("Relative Different(%)");
+	xframe->GetXaxis()->SetTitle("Difference");
         xframe->GetYaxis()->SetTitle("Times");
 	xframe->GetXaxis()->CenterTitle(1);
 	xframe->GetXaxis()->SetDecimals(1);
 	xframe->GetXaxis()->SetTitleSize(0.05);
+	xframe->GetXaxis()->SetLabelOffset(0.02);
 	xframe->SetTitleOffset(1.25,"X");
 	xframe->GetYaxis()->CenterTitle(1);
 	xframe->GetYaxis()->SetLabelSize(0.06);
 	xframe->GetYaxis()->SetTitleSize(0.07);
 	xframe->SetTitleOffset(0.85,"Y");
 
-	Distribution->plotOn(xframe,Binning(100),MarkerColor(kBlack),LineWidth(1));
+	Distribution->plotOn(xframe,Binning(40),MarkerColor(kBlack),LineWidth(1));
 	model.plotOn(xframe, Components("gauss"), LineStyle(2),LineColor(kBlack));
-	model.paramOn(xframe, Layout(0.55, 0.9, 0.9), Format("NEU", AutoPrecision(2)));
+	// model.paramOn(xframe, Layout(0.55, 0.9, 0.9), Format("NEU", AutoPrecision(2)));
 	model.plotOn(xframe);
         cout<<"mean= "<<mean.getVal()<<" +- "<<mean.getError()<<endl;
         cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
 
 	xframe->Draw();
+
+        leg = new TLegend(0.70,0.65,0.88,0.75);
+        leg->SetHeader("(a)");
+        leg->SetLineColor(0);
+        leg->SetFillColor(0);
+        leg->Draw();
+
 	c1->Print("RelativeDiff_0_90.eps");
 }

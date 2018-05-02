@@ -1,4 +1,4 @@
-void DrawFit()
+void DrawFit_0_90()
 {
 	gSystem->Load("libRooFit");
 	using namespace RooFit;
@@ -40,6 +40,7 @@ void DrawFit()
 	TCanvas *c1 = new TCanvas("c1","c1",1000,700);
 
 	c1->cd();
+	// c1->SetGrid();
 	c1->cd()->SetBottomMargin(0.15);;
 
 	TPad *pad = new TPad("pad","",0.0,0.0,1.0,1.0);
@@ -49,13 +50,13 @@ void DrawFit()
 	pad->Draw();
 
 
-        RooRealVar Phase("Phase","",10,90);
+        RooRealVar Phase("Phase","",12,80);
 
 	RooArgSet mchic_etapipi;
 	mchic_etapipi.add(RooArgSet(Phase));
 	RooDataSet *Distribution= RooDataSet::read("../GetPhase/Phase_0_90.txt",mchic_etapipi,"Q");
 	//cout<<__LINE__<<endl;
-        RooRealVar mean("mean", "mean", 45, 10,90);
+        RooRealVar mean("mean", "mean", 45, 12,80);
 	RooRealVar sigma("sigma", "sigma", 3, 0, 50);
         RooGaussian gauss("gauss", "gauss", Phase, mean, sigma);
 
@@ -65,7 +66,7 @@ void DrawFit()
 	RooPlot* xframe = Phase.frame(Title("Relative Phase(degree)")) ; 
 	model.fitTo(*Distribution, Minos(kTRUE),Extended(),Strategy(2));
 
-	xframe->GetXaxis()->SetTitle("Relative Phase(degree)");
+	xframe->GetXaxis()->SetTitle("Relative Phase(#circ)");
         xframe->GetYaxis()->SetTitle("Times");
 	xframe->GetXaxis()->CenterTitle(1);
 	xframe->GetXaxis()->SetDecimals(1);
@@ -76,13 +77,20 @@ void DrawFit()
 	xframe->GetYaxis()->SetTitleSize(0.07);
 	xframe->SetTitleOffset(0.85,"Y");
 
-	Distribution->plotOn(xframe,Binning(100),MarkerColor(kBlack),LineWidth(1));
+	Distribution->plotOn(xframe,Binning(40),MarkerColor(kBlack),LineWidth(1));
 	model.plotOn(xframe, Components("gauss"), LineStyle(2),LineColor(kBlack));
-	model.paramOn(xframe, Layout(0.55, 0.9, 0.9), Format("NEU", AutoPrecision(2)));
+	// model.paramOn(xframe, Layout(0.55, 0.9, 0.9), Format("NEU", AutoPrecision(2)));
 	model.plotOn(xframe);
         cout<<"mean= "<<mean.getVal()<<" +- "<<mean.getError()<<endl;
         cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
 
 	xframe->Draw();
+
+        leg = new TLegend(0.70,0.65,0.88,0.75);
+        leg->SetHeader("(b)");
+        leg->SetLineColor(0);
+        leg->SetFillColor(0);
+        leg->Draw();
+
 	c1->Print("PhaseFit_0_90.eps");
 }

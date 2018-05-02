@@ -49,13 +49,13 @@ void DrawFit()
 	pad->Draw();
 
 
-        RooRealVar Phase("Phase","",359,360);
+        RooRealVar Phase("Phase","",-1,-0.7);
 
 	RooArgSet mchic_etapipi;
 	mchic_etapipi.add(RooArgSet(Phase));
 	RooDataSet *Distribution= RooDataSet::read("../GetPhase/Phase.txt",mchic_etapipi,"Q");
 	//cout<<__LINE__<<endl;
-        RooRealVar mean("mean", "mean", 359.19, 359,360);
+        RooRealVar mean("mean", "mean", -0.75, -1,-0.7);
 	RooRealVar sigma("sigma", "sigma", 0.01, 0, 10);
         RooGaussian gauss("gauss", "gauss", Phase, mean, sigma);
 

@@ -31,9 +31,9 @@ void CalRelativeDiff(){
 
      // output
      for (Int_t i=0;i<tot;i++){
-         RelativeDiff_0_0<<(bf_0_0[i]-0.025)/0.025*100<<endl;
-         RelativeDiff_0_90<<(bf_0_90[i]-0.025)/0.025*100<<endl;
-         RelativeDiff_90_90<<(bf_90_90[i]-0.025)/0.025*100<<endl;
+         RelativeDiff_0_0<<(bf_0_0[i]-0.02)/0.02<<endl;
+         RelativeDiff_0_90<<(bf_0_90[i]-0.02)/0.02<<endl;
+         RelativeDiff_90_90<<(bf_90_90[i]-0.02)/0.02<<endl;
      }
 
      RelativeDiff_0_0.close();

@@ -31,6 +31,20 @@ void GetPhase(){
 
      // output
      for (Int_t i=0;i<tot;i++){
+
+         while (abs(phase_0_0[i])>180) {
+               if (phase_0_0[i]<0) phase_0_0[i] = phase[i]+180;
+               if (phase_0_0[i]>0) phase_0_0[i] = phase[i]-180;
+         }
+         while (abs(phase_0_90[i])>180) {
+               if (phase_0_90[i]<0) phase_0_90[i] = phase_0_90[i]+180;
+               if (phase_0_90[i]>0) phase_0_90[i] = phase_0_90[i]-180;
+         }
+         while (abs(phase_90_90[i])>180) {
+               if (phase_90_90[i]<0) phase_90_90[i] = phase_90_90[i]+180;
+               if (phase_90_90[i]>0) phase_90_90[i] = phase_90_90[i]-180;
+         }
+
          Phase_0_0<<phase_0_0[i]<<endl;
          Phase_0_90<<phase_0_90[i]<<endl;
          Phase_90_90<<phase_90_90[i]<<endl;

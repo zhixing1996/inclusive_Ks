@@ -49,13 +49,13 @@ void DrawFit()
 	pad->Draw();
 
 
-        RooRealVar RelativeDiff("RelativeDiff","",18,23);
+        RooRealVar RelativeDiff("RelativeDiff","",28,35);
 
 	RooArgSet mchic_etapipi;
 	mchic_etapipi.add(RooArgSet(RelativeDiff));
 	RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff.txt",mchic_etapipi,"Q");
 	//cout<<__LINE__<<endl;
-        RooRealVar mean("mean", "mean", 21, 18,23);
+        RooRealVar mean("mean", "mean", 31, 28,35);
 	RooRealVar sigma("sigma", "sigma", 3, 0, 10);
         RooGaussian gauss("gauss", "gauss", RelativeDiff, mean, sigma);
 

@@ -23,7 +23,7 @@ do
   do
     let "k = $k - 1"
     if [ $k -ge 0 ]; then
-      bf=`echo "scale=8; 0.025 * ${IntRnd[$k]} / $sum " | bc -l`
+      bf=`echo "scale=8; 0.02 * ${IntRnd[$k]} / $sum " | bc -l`
       BfPhaseFile="BfPhase_combination.txt"
       touch $BfPhaseFile
       echo "$bf $j" >> $BfPhaseFile
@@ -31,7 +31,7 @@ do
       cd $j
       cp ../../../seed_gencross/* . -rf
       sed -i s/'seed_Bf/'$bf''/g fit_ks_phase.C
-      sed -i s/'seed_Phase/'$j''/g fit_ks_phase.C
+      sed -i s/'seed_Phase/0'/g fit_ks_phase.C
       touch job
       echo "#!/bin/bash" > job
       echo "./ROOTCompile fit_ks_phase" >> job
@@ -64,7 +64,7 @@ do
   do
     let "k = $k - 1"
     if [ $k -ge 0 ]; then
-      bf=`echo "scale=8; 0.025 * ${IntRnd[$k]} / $sum " | bc -l`
+      bf=`echo "scale=8; 0.02 * ${IntRnd[$k]} / $sum " | bc -l`
       BfPhaseFile="BfPhase_combination.txt"
       touch $BfPhaseFile
       echo "$bf $j" >> $BfPhaseFile
@@ -105,7 +105,7 @@ do
   do
     let "k = $k - 1"
     if [ $k -ge 0 ]; then
-      bf=`echo "scale=8; 0.025 * ${IntRnd[$k]} / $sum " | bc -l`
+      bf=`echo "scale=8; 0.02 * ${IntRnd[$k]} / $sum " | bc -l`
       BfPhaseFile="BfPhase_combination.txt"
       touch $BfPhaseFile
       echo "$bf $j" >> $BfPhaseFile
@@ -113,7 +113,7 @@ do
       cd $j
       cp ../../../seed_gencross/* . -rf
       sed -i s/'seed_Bf/'$bf''/g fit_ks_phase.C
-      sed -i s/'seed_Phase/'$j''/g fit_ks_phase.C
+      sed -i s/'seed_Phase/90'/g fit_ks_phase.C
       touch job
       echo "#!/bin/bash" > job
       echo "./ROOTCompile fit_ks_phase" >> job

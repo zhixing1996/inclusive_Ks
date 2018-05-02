@@ -70,7 +70,7 @@ do
     # for dominant
     # rnd_back=$dominantrnd
     # while [ $j -le 49 ]; 
-    while [ $j -le 50 ];
+    while [ $j -lt 50 ];
     do
         rnd=$(rand 0 90)
         # for dominant

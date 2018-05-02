@@ -1,4 +1,4 @@
-void DrawFit()
+void DrawFit_90_90()
 {
 	gSystem->Load("libRooFit");
 	using namespace RooFit;
@@ -37,10 +37,11 @@ void DrawFit()
 	RooMsgService::instance().deleteStream(1) ;
 	RooMsgService::instance().Print() ;
 
-	TCanvas *c1 = new TCanvas("c1","c1",1000,700);
+	TCanvas *c = new TCanvas("c","c",1000,700);
 
-	c1->cd();
-	c1->cd()->SetBottomMargin(0.15);;
+	c->cd();
+	// c->SetGrid();
+	// c->cd()->SetBottomMargin(0.15);;
 
 	TPad *pad = new TPad("pad","",0.0,0.0,1.0,1.0);
 	pad->SetBottomMargin(0.15);
@@ -48,41 +49,86 @@ void DrawFit()
 	pad->SetFrameLineWidth(4.5);
 	pad->Draw();
 
+        const int n =100;
+        Double_t bfxval[n], bfxerr[n], bfval[n], bferr[n];
+	double sum = 0, average = 0;
+        ifstream openfile;
+        openfile.open("../GetPhase/Phase_90_90.txt");
+        for ( Int_t i = 0; i<n; i++){
+            bfxval[i] = i;
+            bfxerr[i] = 0.000001;
+        }
 
-        RooRealVar Phase("Phase","",10,90);
+        for (Int_t i = 0; i<n; i++) {
+            openfile>>bfval[i];
+	    sum +=bfval[i];
+            bferr[i] = 0.000001;
+        }
 
-	RooArgSet mchic_etapipi;
-	mchic_etapipi.add(RooArgSet(Phase));
-	RooDataSet *Distribution= RooDataSet::read("../GetPhase/Phase_90_90.txt",mchic_etapipi,"Q");
-	//cout<<__LINE__<<endl;
-        RooRealVar mean("mean", "mean", 45, 10,90);
-	RooRealVar sigma("sigma", "sigma", 3, 0, 50);
-        RooGaussian gauss("gauss", "gauss", Phase, mean, sigma);
+	average = sum/n;
 
-	RooRealVar nsig("nsig","#sig events", 100., 0., 300.);
+        TGraphErrors *graph = new TGraphErrors(n, bfxval, bfval, bfxerr, bferr);
+        graph->GetYaxis()->SetRangeUser(90.054,90.15);
+        graph->GetXaxis()->SetRangeUser(0,102);
+        graph->GetXaxis()->SetTitle("Number");
+        graph->GetYaxis()->SetTitle("Relative Phase(#circ)");
+        graph->SetMarkerStyle(20);
+        graph->SetMarkerColor(2);
+        graph->SetLineColor(2);
+        graph->GetXaxis()->CenterTitle();
+        graph->GetYaxis()->CenterTitle();
+        graph->GetYaxis()->SetDecimals();
+        graph->GetYaxis()->SetTitleOffset(1.3);
 
-	RooAddPdf model("model", "g", RooArgList(gauss), RooArgList(nsig));
-	RooPlot* xframe = Phase.frame(Title("Relative Phase(degree)")) ; 
-	model.fitTo(*Distribution, Minos(kTRUE),Extended(),Strategy(2));
+        graph->Draw("AP");
+        graph->Fit("pol0");
 
-	xframe->GetXaxis()->SetTitle("Relative Phase(degree)");
-        xframe->GetYaxis()->SetTitle("Times");
-	xframe->GetXaxis()->CenterTitle(1);
-	xframe->GetXaxis()->SetDecimals(1);
-	xframe->GetXaxis()->SetTitleSize(0.05);
-	xframe->SetTitleOffset(1.25,"X");
-	xframe->GetYaxis()->CenterTitle(1);
-	xframe->GetYaxis()->SetLabelSize(0.06);
-	xframe->GetYaxis()->SetTitleSize(0.07);
-	xframe->SetTitleOffset(0.85,"Y");
+        TF1 *f = graph->GetFunction("pol0");
+        f->SetLineWidth(1);
+        cout << "Average brach fraction: " << average << endl;
+        openfile.close();
 
-	Distribution->plotOn(xframe,Binning(100),MarkerColor(kBlack),LineWidth(1));
-	model.plotOn(xframe, Components("gauss"), LineStyle(2),LineColor(kBlack));
-	model.paramOn(xframe, Layout(0.55, 0.9, 0.9), Format("NEU", AutoPrecision(2)));
-	model.plotOn(xframe);
-        cout<<"mean= "<<mean.getVal()<<" +- "<<mean.getError()<<endl;
-        cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
+        // RooRealVar Phase("Phase","",-3.7,-3.5);
 
-	xframe->Draw();
-	c1->Print("PhaseFit_90_90.eps");
+	// RooArgSet mchic_etapipi;
+	// mchic_etapipi.add(RooArgSet(Phase));
+	// RooDataSet *Distribution= RooDataSet::read("../GetPhase/Phase_0_0.txt",mchic_etapipi,"Q");
+	// //cout<<__LINE__<<endl;
+        // RooRealVar mean("mean", "mean", -3.6, -3.7,-3.5);
+	// RooRealVar sigma("sigma", "sigma", 0.01, 0, 10);
+        // RooGaussian gauss("gauss", "gauss", Phase, mean, sigma);
+
+	// RooRealVar nsig("nsig","#sig events", 100., 0., 300.);
+
+	// RooAddPdf model("model", "g", RooArgList(gauss), RooArgList(nsig));
+	// RooPlot* xframe = Phase.frame(Title("Relative Phase(degree)")) ; 
+	// model.fitTo(*Distribution, Minos(kTRUE),Extended(),Strategy(2));
+
+	// xframe->GetXaxis()->SetTitle("Relative Phase(degree)");
+        // xframe->GetYaxis()->SetTitle("Times");
+	// xframe->GetXaxis()->CenterTitle(1);
+	// xframe->GetXaxis()->SetDecimals(1);
+	// xframe->GetXaxis()->SetTitleSize(0.05);
+	// xframe->SetTitleOffset(1.25,"X");
+	// xframe->GetYaxis()->CenterTitle(1);
+	// xframe->GetYaxis()->SetLabelSize(0.06);
+	// xframe->GetYaxis()->SetTitleSize(0.07);
+	// xframe->SetTitleOffset(0.85,"Y");
+
+	// Distribution->plotOn(xframe,Binning(100),MarkerColor(kBlack),LineWidth(1));
+	// model.plotOn(xframe, Components("gauss"), LineStyle(2),LineColor(kBlack));
+	// model.paramOn(xframe, Layout(0.55, 0.9, 0.9), Format("NEU", AutoPrecision(2)));
+	// model.plotOn(xframe);
+        // cout<<"mean= "<<mean.getVal()<<" +- "<<mean.getError()<<endl;
+        // cout<<"sigma= "<<sigma.getVal()<<" +- "<<sigma.getError()<<endl;
+
+	// xframe->Draw();
+	
+        leg = new TLegend(0.70,0.65,0.88,0.75);
+        leg->SetHeader("(b)");
+        leg->SetLineColor(0);
+        leg->SetFillColor(0);
+        leg->Draw();	
+
+	c->Print("PhaseFit_90_90.eps");
 }

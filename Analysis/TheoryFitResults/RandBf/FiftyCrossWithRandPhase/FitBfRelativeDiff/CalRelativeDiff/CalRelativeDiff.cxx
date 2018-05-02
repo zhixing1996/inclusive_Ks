@@ -21,7 +21,7 @@ void CalRelativeDiff(){
 
      // output
      for (Int_t i=0;i<tot;i++){
-         RelativeDiff<<(bf[i]-0.5)/0.5*100<<endl;
+         RelativeDiff<<(bf[i]-0.5)/0.5<<endl;
      }
 
      RelativeDiff.close();

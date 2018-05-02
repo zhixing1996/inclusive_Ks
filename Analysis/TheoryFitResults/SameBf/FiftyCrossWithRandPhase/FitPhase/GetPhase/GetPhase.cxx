@@ -21,7 +21,11 @@ void GetPhase(){
 
      // output
      for (Int_t i=0;i<tot;i++){
-         Phase<<phase[i]<<endl;
+         while (abs(phase[i])>180) {
+              if (phase[i]<0) phase[i] = phase[i]+180;
+              if (phase[i]>0) phase[i] = phase[i]-180;
+        }
+        Phase<<phase[i]<<endl;
      }
 
      Phase.close();

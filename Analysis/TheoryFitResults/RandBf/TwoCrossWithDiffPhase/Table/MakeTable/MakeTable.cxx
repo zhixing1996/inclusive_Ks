@@ -41,19 +41,19 @@ void MakeTable(){
      table<<"Specific combinations of phase can be founde in ../../../../../TheoryFit/RandBf/TwoCrossWithDiffPhase/Combination/CombinationX(X:1~50) with rank : Bf + Phase"<<endl;
      table<<"Number"<<"\t"<<"Branch Ratio"<<"\t"<<"Output Phase"<<"\t"<<"Output Branch Ratio"<<"\t"<<"Relative Difference(%)"<<endl;
 
-     table<<"Results of 0 0 combinations"
+     table<<"Results of 0 0 combinations"<<endl; 
      for (Int_t i=0;i<tot;i++){
-         table<<i<<"\t"<<"0.025"<<"\t"<<phase_0_0[i]<<"+/-"<<phaseerr_0_0[i]<<"\t"<<bf_0_0[i]<<"+/-"<<bferr_0_0[i]<<"\t"<<(bf_0_0[i]-0.025)/0.025*100<<endl;
+         table<<i<<"\t"<<"0.02"<<"\t"<<phase_0_0[i]<<"+/-"<<phaseerr_0_0[i]<<"\t"<<bf_0_0[i]<<"+/-"<<bferr_0_0[i]<<"\t"<<(bf_0_0[i]-0.02)/0.02*100<<endl;
      }
 
-     table<<"Results of 0 90 combinations"
+     table<<"Results of 0 90 combinations"<<endl;
      for (Int_t i=0;i<tot;i++){
-         table<<i<<"\t"<<"0.025"<<"\t"<<phase_0_90[i]<<"+/-"<<phaseerr_0_90[i]<<"\t"<<bf_0_90[i]<<"+/-"<<bferr_0_90[i]<<"\t"<<(bf_0_90[i]-0.025)/0.025*100<<endl;
+         table<<i<<"\t"<<"0.02"<<"\t"<<phase_0_90[i]<<"+/-"<<phaseerr_0_90[i]<<"\t"<<bf_0_90[i]<<"+/-"<<bferr_0_90[i]<<"\t"<<(bf_0_90[i]-0.02)/0.02*100<<endl;
      }
 
-     table<<"Results of 90 90 combinations"
+     table<<"Results of 90 90 combinations"<<endl;
      for (Int_t i=0;i<tot;i++){
-         table<<i<<"\t"<<"0.025"<<"\t"<<phase_90_90[i]<<"+/-"<<phaseerr_90_90[i]<<"\t"<<bf_90_90[i]<<"+/-"<<bferr_90_90[i]<<"\t"<<(bf_90_90[i]-0.025)/0.025*100<<endl;
+         table<<i<<"\t"<<"0.02"<<"\t"<<phase_90_90[i]<<"+/-"<<phaseerr_90_90[i]<<"\t"<<bf_90_90[i]<<"+/-"<<bferr_90_90[i]<<"\t"<<(bf_90_90[i]-0.02)/0.02*100<<endl;
      }
 
      table.close();
