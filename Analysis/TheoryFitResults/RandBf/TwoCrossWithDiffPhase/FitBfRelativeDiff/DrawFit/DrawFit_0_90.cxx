@@ -3,8 +3,8 @@ void DrawFit_0_90()
 	gSystem->Load("libRooFit");
 	using namespace RooFit;
 	gStyle->SetOptFit(1111);
-	gStyle->SetPadTickX(1);
-	gStyle->SetPadTickY(1);
+	gStyle->SetPadTickX(0);
+	gStyle->SetPadTickY(0);
 
 	gStyle->SetFrameBorderMode(0);
 	gStyle->SetCanvasBorderMode(0);
@@ -50,7 +50,7 @@ void DrawFit_0_90()
 	pad->Draw();
 
 
-        RooRealVar RelativeDiff("RelativeDiff","",0.0001,0.0007);
+        RooRealVar RelativeDiff("RelativeDiff","",0.0001,0.0006);
 
 	RooArgSet mchic_etapipi;
 	mchic_etapipi.add(RooArgSet(RelativeDiff));

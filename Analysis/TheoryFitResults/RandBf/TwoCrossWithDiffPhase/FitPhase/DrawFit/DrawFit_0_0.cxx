@@ -3,8 +3,8 @@ void DrawFit_0_0()
 	gSystem->Load("libRooFit");
 	using namespace RooFit;
 	gStyle->SetOptFit(1111);
-	gStyle->SetPadTickX(1);
-	gStyle->SetPadTickY(1);
+	gStyle->SetPadTickX(0);
+	gStyle->SetPadTickY(0);
 
 	gStyle->SetFrameBorderMode(0);
 	gStyle->SetCanvasBorderMode(0);
@@ -36,6 +36,8 @@ void DrawFit_0_0()
 	RooMsgService::instance().deleteStream(0) ;
 	RooMsgService::instance().deleteStream(1) ;
 	RooMsgService::instance().Print() ;
+
+        //************************************************//
 
 	TCanvas *c = new TCanvas("c","c",1000,700);
 
@@ -71,7 +73,7 @@ void DrawFit_0_0()
         graph->GetYaxis()->SetRangeUser(-4.2,-3.2);
         graph->GetXaxis()->SetRangeUser(0,102);
         graph->GetXaxis()->SetTitle("Number");
-        graph->GetYaxis()->SetTitle("Relative Phase(#circ)");
+        graph->GetYaxis()->SetTitle("Relative Phase/#circ");
         graph->SetMarkerStyle(20);
         graph->SetMarkerColor(2);
         graph->SetLineColor(2);
@@ -87,13 +89,15 @@ void DrawFit_0_0()
         cout << "Average brach fraction: " << average << endl;
         openfile.close();
 
-        // RooRealVar Phase("Phase","",-3.7,-3.5);
+        //************************************************//
+
+        // RooRealVar Phase("Phase","",-4.2,-3.2);
 
 	// RooArgSet mchic_etapipi;
 	// mchic_etapipi.add(RooArgSet(Phase));
 	// RooDataSet *Distribution= RooDataSet::read("../GetPhase/Phase_0_0.txt",mchic_etapipi,"Q");
 	// //cout<<__LINE__<<endl;
-        // RooRealVar mean("mean", "mean", -3.6, -3.7,-3.5);
+        // RooRealVar mean("mean", "mean", -3.6, -4.2,-3.2);
 	// RooRealVar sigma("sigma", "sigma", 0.01, 0, 10);
         // RooGaussian gauss("gauss", "gauss", Phase, mean, sigma);
 

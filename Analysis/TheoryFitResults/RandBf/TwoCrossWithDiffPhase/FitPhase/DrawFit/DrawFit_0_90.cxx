@@ -3,8 +3,8 @@ void DrawFit_0_90()
 	gSystem->Load("libRooFit");
 	using namespace RooFit;
 	gStyle->SetOptFit(1111);
-	gStyle->SetPadTickX(1);
-	gStyle->SetPadTickY(1);
+	gStyle->SetPadTickX(0);
+	gStyle->SetPadTickY(0);
 
 	gStyle->SetFrameBorderMode(0);
 	gStyle->SetCanvasBorderMode(0);
@@ -66,7 +66,7 @@ void DrawFit_0_90()
 	RooPlot* xframe = Phase.frame(Title("Relative Phase(degree)")) ; 
 	model.fitTo(*Distribution, Minos(kTRUE),Extended(),Strategy(2));
 
-	xframe->GetXaxis()->SetTitle("Relative Phase(#circ)");
+	xframe->GetXaxis()->SetTitle("Relative Phase/#circ");
         xframe->GetYaxis()->SetTitle("Times");
 	xframe->GetXaxis()->CenterTitle(1);
 	xframe->GetXaxis()->SetDecimals(1);

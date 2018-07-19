@@ -3,8 +3,8 @@ void DrawFit_90_90()
 	gSystem->Load("libRooFit");
 	using namespace RooFit;
 	gStyle->SetOptFit(1111);
-	gStyle->SetPadTickX(1);
-	gStyle->SetPadTickY(1);
+	gStyle->SetPadTickX(0);
+	gStyle->SetPadTickY(0);
 
 	gStyle->SetFrameBorderMode(0);
 	gStyle->SetCanvasBorderMode(0);
@@ -37,6 +37,8 @@ void DrawFit_90_90()
 	RooMsgService::instance().deleteStream(1) ;
 	RooMsgService::instance().Print() ;
 
+        //******************************************************//
+
 	TCanvas *c = new TCanvas("c","c",1000,700);
 
 	c->cd();
@@ -68,10 +70,10 @@ void DrawFit_90_90()
 	average = sum/n;
 
         TGraphErrors *graph = new TGraphErrors(n, bfxval, bfval, bfxerr, bferr);
-        graph->GetYaxis()->SetRangeUser(90.054,90.15);
+        graph->GetYaxis()->SetRangeUser(90.054,90.056);
         graph->GetXaxis()->SetRangeUser(0,102);
         graph->GetXaxis()->SetTitle("Number");
-        graph->GetYaxis()->SetTitle("Relative Phase(#circ)");
+        graph->GetYaxis()->SetTitle("Relative Phase/#circ");
         graph->SetMarkerStyle(20);
         graph->SetMarkerColor(2);
         graph->SetLineColor(2);
@@ -88,14 +90,16 @@ void DrawFit_90_90()
         cout << "Average brach fraction: " << average << endl;
         openfile.close();
 
-        // RooRealVar Phase("Phase","",-3.7,-3.5);
+        //******************************************************//
+
+        // RooRealVar Phase("Phase","",90.054,90.056);
 
 	// RooArgSet mchic_etapipi;
 	// mchic_etapipi.add(RooArgSet(Phase));
-	// RooDataSet *Distribution= RooDataSet::read("../GetPhase/Phase_0_0.txt",mchic_etapipi,"Q");
+	// RooDataSet *Distribution= RooDataSet::read("../GetPhase/Phase_90_90.txt",mchic_etapipi,"Q");
 	// //cout<<__LINE__<<endl;
-        // RooRealVar mean("mean", "mean", -3.6, -3.7,-3.5);
-	// RooRealVar sigma("sigma", "sigma", 0.01, 0, 10);
+        // RooRealVar mean("mean", "mean", 90.0544, 90.054,90.056);
+	// RooRealVar sigma("sigma", "sigma", 0.0001, 0, 10);
         // RooGaussian gauss("gauss", "gauss", Phase, mean, sigma);
 
 	// RooRealVar nsig("nsig","#sig events", 100., 0., 300.);

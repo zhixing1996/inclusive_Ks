@@ -8,8 +8,8 @@ void DrawFit(){
     gSystem->Load("libRooFit");
     using namespace RooFit;
     gStyle->SetOptFit(1111);
-    gStyle->SetPadTickX(1);
-    gStyle->SetPadTickY(1);
+    // gStyle->SetPadTickX(1);
+    // gStyle->SetPadTickY(1);
     gStyle->SetFrameBorderMode(0);
     gStyle->SetCanvasBorderMode(0);
     gStyle->SetPadBorderMode(0);
@@ -50,11 +50,11 @@ void DrawFit(){
     pad->SetFrameLineWidth(4.5);
     pad->Draw();
     
-    RooRealVar Phase("Phase","",-1.8,-1.6);
+    RooRealVar Phase("Phase","",-1.75,-1.45);
     RooArgSet mchic_etapipi;
     mchic_etapipi.add(RooArgSet(Phase));
     RooDataSet *Distribution= RooDataSet::read("../GetPhase/Phase.txt",mchic_etapipi,"Q");
-    RooRealVar mean("mean", "mean", -1.65, -1.74,-1.62);
+    RooRealVar mean("mean", "mean", -1.65, -1.7,-1.5);
     RooRealVar sigma("sigma", "sigma", 0.01, 0, 1);
     RooGaussian gauss("gauss", "gauss", Phase, mean, sigma);
 
@@ -64,7 +64,7 @@ void DrawFit(){
     RooPlot* xframe = Phase.frame(Title("Relative Phase(degree)")) ;
     model.fitTo(*Distribution, Minos(kTRUE),Extended(),Strategy(2));
 
-    xframe->GetXaxis()->SetTitle("Relative Phase(#circ)");
+    xframe->GetXaxis()->SetTitle("Relative Phase/#circ");
     xframe->GetYaxis()->SetTitle("Times");
     xframe->GetXaxis()->CenterTitle(1);
     xframe->GetXaxis()->SetDecimals(1);

@@ -105,7 +105,7 @@ double rescs(double *ecm0,double *par)
     double Xf=1.-4.*Emin*Emin/s;
 
     double C1=(8.*pi*alpha*sqrt(GE*GF)/MJ*( (s-MJ2)*cos(phase)+MJ*GT*sin(phase)) +12*pi*(GE*GF/MJ2)*s)/s/s;
-    double C2=(8.*pi*alpha*sqrt(GE*GF)/MJ*cos(phase)-12*pi*GE*GF/MJ2)/s;
+    double C2=(8.*pi*alpha*sqrt(GE*GF)/MJ*cos(phase)+12*pi*GE*GF/MJ2)/s;
     double Xf0 = pow(Xf,beta)/(beta);
     double Xf1 = pow(Xf,beta-1.)/(beta-1.);
     double Xf2 = pow(Xf,beta-2.)/(beta-2.);
@@ -146,9 +146,10 @@ double funh(double *x, double *par)
     double beta = 2.0*alpha/pi*(log(s/me/me)-1.0);
     double Xf=1.-4.*Emin*Emin/s;
 
-    double hard1=1.0-x[0]/2.0;
-    double hard2=4.0*(2.0-x[0])*log(1.0/x[0])+1.0/x[0]*(1.0+3.0*(1.0-x[0])*(1.0-x[0]))*log(1.0/(1.0-x[0]))-6.0+x[0];
-    double dXS=(-beta*hard1+beta*beta/8.0*hard2)*qedxs(s*(1-x[0]));
+    // double hard1=1.0-x[0]/2.0;
+    // double hard2=4.0*(2.0-x[0])*log(1.0/x[0])+1.0/x[0]*(1.0+3.0*(1.0-x[0])*(1.0-x[0]))*log(1.0/(1.0-x[0]))-6.0+x[0];
+    // double dXS=(-beta*hard1+beta*beta/8.0*hard2)*qedxs(s*(1-x[0]));
+    double dXS=qedxs(s*(1-x[0]))*(1+beta/2.*(2*log(Xf)-log(1-Xf)+3./2.-Xf)+alpha/pi*(pi*pi/3.-1./2.));
     return dXS;
 }
 
@@ -182,7 +183,8 @@ double intXS(double *ecm, double *par)
     TF1 *fXS_funh = new TF1("fXS_funh", funh, 0.0, 1.0, 1);
     fXS_funh->SetParameter(0, ecm[0]); //initial energy
     double my_intXS_qed3 = fXS_funh->Integral(0.0, UPL);
-    double my_intXS_qed = hs*( my_intXS_qed2); //
+    // double my_intXS_qed = hs*( my_intXS_qed2); //
+    double my_intXS_qed = hs*( my_intXS_qed3); //
 
     return my_intXS+my_intXS_qed;
 

@@ -3,8 +3,8 @@ void DrawFit()
 	gSystem->Load("libRooFit");
 	using namespace RooFit;
 	gStyle->SetOptFit(1111);
-	gStyle->SetPadTickX(1);
-	gStyle->SetPadTickY(1);
+//	gStyle->SetPadTickX(1);
+//	gStyle->SetPadTickY(1);
 
 	gStyle->SetFrameBorderMode(0);
 	gStyle->SetCanvasBorderMode(0);
@@ -57,13 +57,13 @@ void DrawFit()
 	// lt.SetTextColor(1);
 	// lt.DrawLatex(25, 75, Form("(a)"));
 
-        RooRealVar RelativeDiff("RelativeDiff","",0.1,0.4);
+        RooRealVar RelativeDiff("RelativeDiff","",0.05,0.45);
 
 	RooArgSet mchic_etapipi;
 	mchic_etapipi.add(RooArgSet(RelativeDiff));
 	RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff.txt",mchic_etapipi,"Q");
 	//cout<<__LINE__<<endl;
-        RooRealVar mean("mean", "mean", 0.25, 0.15,0.32);
+        RooRealVar mean("mean", "mean", 0.35, 0.15,0.4);
 	RooRealVar sigma("sigma", "sigma", 0.03, 0, 0.30);
         RooGaussian gauss("gauss", "gauss", RelativeDiff, mean, sigma);
 

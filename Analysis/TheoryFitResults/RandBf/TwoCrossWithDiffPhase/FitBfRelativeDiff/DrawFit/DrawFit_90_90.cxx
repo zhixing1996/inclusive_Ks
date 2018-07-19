@@ -3,8 +3,8 @@ void DrawFit_90_90()
 	gSystem->Load("libRooFit");
 	using namespace RooFit;
 	gStyle->SetOptFit(1111);
-	gStyle->SetPadTickX(1);
-	gStyle->SetPadTickY(1);
+	gStyle->SetPadTickX(0);
+	gStyle->SetPadTickY(0);
 
 	gStyle->SetFrameBorderMode(0);
 	gStyle->SetCanvasBorderMode(0);
@@ -36,6 +36,8 @@ void DrawFit_90_90()
 	RooMsgService::instance().deleteStream(0) ;
 	RooMsgService::instance().deleteStream(1) ;
 	RooMsgService::instance().Print() ;
+
+        //*********************************************************//
 
 	TCanvas *c = new TCanvas("c","c",1000,700);
 
@@ -88,13 +90,15 @@ void DrawFit_90_90()
 
 	cout << "Average brach fraction: " << average << endl;
 
-        // RooRealVar RelativeDiff("RelativeDiff","",0.02,0.05);
+        //*********************************************************//
+
+        // RooRealVar RelativeDiff("RelativeDiff","",0.01,0.06);
 
 	// RooArgSet mchic_etapipi;
 	// mchic_etapipi.add(RooArgSet(RelativeDiff));
 	// RooDataSet *Distribution= RooDataSet::read("../CalRelativeDiff/RelativeDiff_90_90.txt",mchic_etapipi,"Q");
 	// //cout<<__LINE__<<endl;
-        // RooRealVar mean("mean", "mean", 0.045, 0.02,0.05);
+        // RooRealVar mean("mean", "mean", 0.045, 0.01,0.06);
 	// RooRealVar sigma("sigma", "sigma", 0.0001, 0, 1);
         // RooGaussian gauss("gauss", "gauss", RelativeDiff, mean, sigma);
 

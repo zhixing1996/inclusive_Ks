@@ -3,8 +3,8 @@ void DrawFit_0_0()
 	gSystem->Load("libRooFit");
 	using namespace RooFit;
 	gStyle->SetOptFit(1111);
-	gStyle->SetPadTickX(1);
-	gStyle->SetPadTickY(1);
+	gStyle->SetPadTickX(0);
+	gStyle->SetPadTickY(0);
 
 	gStyle->SetFrameBorderMode(0);
 	gStyle->SetCanvasBorderMode(0);
@@ -37,6 +37,8 @@ void DrawFit_0_0()
 	RooMsgService::instance().deleteStream(1) ;
 	RooMsgService::instance().Print() ;
 
+        //************************************************************//
+
 	TCanvas *c = new TCanvas("c","c",1000,700);
 
 	c->cd();
@@ -68,7 +70,7 @@ void DrawFit_0_0()
 	average = sum/n;
 
         TGraphErrors *graph = new TGraphErrors(n, bfxval, bfval, bfxerr, bferr);
-        graph->GetYaxis()->SetRangeUser(0.00,0.12);
+        graph->GetYaxis()->SetRangeUser(0.00,0.22);
         graph->GetXaxis()->SetRangeUser(0,102);
         graph->GetXaxis()->SetTitle("Number");
         graph->GetYaxis()->SetTitle("Difference");
@@ -87,6 +89,8 @@ void DrawFit_0_0()
         openfile.close();
 
         cout << "Average brach fraction: " << average << endl;
+
+        //************************************************************//
 
          // RooRealVar RelativeDiff("RelativeDiff","",0.03,0.11);
 
